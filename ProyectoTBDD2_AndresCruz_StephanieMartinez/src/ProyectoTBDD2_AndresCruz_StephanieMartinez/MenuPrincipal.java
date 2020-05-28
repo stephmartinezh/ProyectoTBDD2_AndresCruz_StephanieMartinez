@@ -7,7 +7,7 @@ package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
 /**
  *
- * @author Stephanie
+ * @author Stephanie and Andres
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 

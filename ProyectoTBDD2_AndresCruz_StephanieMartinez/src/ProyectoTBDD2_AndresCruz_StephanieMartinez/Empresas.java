@@ -1,5 +1,7 @@
 package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
+import java.util.ArrayList;
+
 public class Empresas {
 
     String cif;
@@ -7,6 +9,7 @@ public class Empresas {
     String ceo;
     String direccion;
     String categoria;
+    ArrayList<OfertaEmpleo> ofertas;
 
     public Empresas(String cif, String nombre, String ceo, String direccion, String categoria) {
         this.cif = cif;
@@ -14,6 +17,14 @@ public class Empresas {
         this.ceo = ceo;
         this.direccion = direccion;
         this.categoria = categoria;
+    }
+
+    public ArrayList<OfertaEmpleo> getOfertas() {
+        return ofertas;
+    }
+
+    public void setOfertas(ArrayList<OfertaEmpleo> ofertas) {
+        this.ofertas = ofertas;
     }
 
     public String getCif() {

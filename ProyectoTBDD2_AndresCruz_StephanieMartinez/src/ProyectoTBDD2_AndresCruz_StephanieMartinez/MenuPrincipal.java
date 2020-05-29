@@ -1,10 +1,17 @@
 package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
     Persona persona;
+    DatosLegales datosLegales;
+    Curriculum curriculum;
+    ExperienciaLaboral experiencia;
+    DatosAcademicos datosacademicos;
+    DatosSanitarios datossanitarios;
+
     public MenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -82,11 +89,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jrb_siServicioLegal = new javax.swing.JRadioButton();
         jrb_siCasadoLegal = new javax.swing.JRadioButton();
         jrb_siVisaLegal = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        jrb_noAntecedenteLegal = new javax.swing.JRadioButton();
+        jrb_noLicenciaLegal = new javax.swing.JRadioButton();
+        jrb_noServicioLegal = new javax.swing.JRadioButton();
+        jrb_noCasadoLegal = new javax.swing.JRadioButton();
+        jrb_noVisaLegal = new javax.swing.JRadioButton();
+        jLabel46 = new javax.swing.JLabel();
+        jrb_siEdadLegal = new javax.swing.JRadioButton();
+        jrb_noEdadLegal = new javax.swing.JRadioButton();
         jb_guardarPersonal = new javax.swing.JButton();
         jtf_nombrePersonal1 = new javax.swing.JTextField();
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -108,7 +118,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jta_puestoProfesional = new javax.swing.JTextArea();
-        jtf_salarioProfesional1 = new javax.swing.JTextField();
+        jtf_salarioProfesional = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jta_idiomasProfesional = new javax.swing.JTextArea();
         jLabel31 = new javax.swing.JLabel();
@@ -134,7 +144,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jrb_siEstudianteProfesional = new javax.swing.JRadioButton();
         jrb_noEstudianteProfesional = new javax.swing.JRadioButton();
         jtf_especializacionProfesional = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcb_gradoProfesional = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
@@ -155,6 +165,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         bg_respiratorio = new javax.swing.ButtonGroup();
         bg_cardiaco = new javax.swing.ButtonGroup();
         bg_mental = new javax.swing.ButtonGroup();
+        bg_mayor = new javax.swing.ButtonGroup();
         jb_subecurriculum = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
@@ -513,25 +524,36 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jrb_siVisaLegal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jrb_siVisaLegal.setText("Si");
 
-        bg_antecedentePenal.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jRadioButton1.setText("No");
+        bg_antecedentePenal.add(jrb_noAntecedenteLegal);
+        jrb_noAntecedenteLegal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jrb_noAntecedenteLegal.setText("No");
 
-        bg_licencia.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jRadioButton2.setText("No");
+        bg_licencia.add(jrb_noLicenciaLegal);
+        jrb_noLicenciaLegal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jrb_noLicenciaLegal.setText("No");
 
-        bg_servicioMilitar.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jRadioButton3.setText("No");
+        bg_servicioMilitar.add(jrb_noServicioLegal);
+        jrb_noServicioLegal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jrb_noServicioLegal.setText("No");
 
-        bg_casado.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jRadioButton4.setText("No");
+        bg_casado.add(jrb_noCasadoLegal);
+        jrb_noCasadoLegal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jrb_noCasadoLegal.setText("No");
 
-        bg_visa.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jRadioButton5.setText("No");
+        bg_visa.add(jrb_noVisaLegal);
+        jrb_noVisaLegal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jrb_noVisaLegal.setText("No");
+
+        jLabel46.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel46.setText("Mayor de edad");
+
+        bg_mayor.add(jrb_siEdadLegal);
+        jrb_siEdadLegal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jrb_siEdadLegal.setText("Si");
+
+        bg_mayor.add(jrb_noEdadLegal);
+        jrb_noEdadLegal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jrb_noEdadLegal.setText("No");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -541,81 +563,96 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
+                        .addComponent(jLabel46)
                         .addGap(18, 18, 18)
-                        .addComponent(jtf_identidadLegal, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE))
+                        .addComponent(jrb_siEdadLegal)
+                        .addGap(18, 18, 18)
+                        .addComponent(jrb_noEdadLegal)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jLabel23))
+                                .addComponent(jLabel18)
                                 .addGap(18, 18, 18)
+                                .addComponent(jtf_identidadLegal, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jrb_siVisaLegal)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel22)
+                                            .addComponent(jLabel23))
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton5))
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jrb_siVisaLegal)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jrb_noVisaLegal))
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(jrb_siCasadoLegal)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jrb_noCasadoLegal))))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jrb_siCasadoLegal)
+                                        .addComponent(jLabel19)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton4))))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(jrb_siAntecedenteLegal)
-                                .addGap(10, 10, 10)
-                                .addComponent(jRadioButton1))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(18, 18, 18)
-                                .addComponent(jrb_siLicenciaLegal)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addGap(18, 18, 18)
-                                .addComponent(jrb_siServicioLegal)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton3)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(116, 116, 116))
+                                        .addComponent(jrb_siAntecedenteLegal)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jrb_noAntecedenteLegal))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel20)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jrb_siLicenciaLegal)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jrb_noLicenciaLegal))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel21)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jrb_siServicioLegal)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jrb_noServicioLegal)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(116, 116, 116))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jtf_identidadLegal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46)
+                    .addComponent(jrb_siEdadLegal)
+                    .addComponent(jrb_noEdadLegal))
+                .addGap(15, 15, 15)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(jtf_identidadLegal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
+                        .addGap(8, 8, 8)
                         .addComponent(jLabel19))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jrb_siAntecedenteLegal)
-                        .addComponent(jRadioButton1)))
+                        .addComponent(jrb_noAntecedenteLegal)))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(jrb_siLicenciaLegal)
-                    .addComponent(jRadioButton2))
+                    .addComponent(jrb_noLicenciaLegal))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(jrb_siServicioLegal)
-                    .addComponent(jRadioButton3))
+                    .addComponent(jrb_noServicioLegal))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(jrb_siCasadoLegal)
-                    .addComponent(jRadioButton4))
+                    .addComponent(jrb_noCasadoLegal))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(jrb_siVisaLegal)
-                    .addComponent(jRadioButton5))
-                .addContainerGap(105, Short.MAX_VALUE))
+                    .addComponent(jrb_noVisaLegal))
+                .addGap(60, 60, 60))
         );
 
         jtp_informacionPersonal.addTab("Datos Legales", jPanel4);
@@ -686,7 +723,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jta_puestoProfesional.setRows(5);
         jScrollPane2.setViewportView(jta_puestoProfesional);
 
-        jtf_salarioProfesional1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jtf_salarioProfesional.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jta_idiomasProfesional.setColumns(20);
         jta_idiomasProfesional.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -727,8 +764,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel26)
                                     .addComponent(jLabel25))
-                                .addGap(21, 21, 21)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(21, 21, 21)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(30, 30, 30)
+                                        .addComponent(jtf_salarioProfesional, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -745,11 +787,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel30)))))
                 .addContainerGap(71, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(164, 164, 164)
-                    .addComponent(jtf_salarioProfesional1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(215, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -763,9 +800,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel30))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addComponent(jLabel26)
-                .addGap(38, 38, 38)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(jtf_salarioProfesional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
                     .addComponent(jrb_siContratoProfesional)
@@ -780,11 +819,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel32))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(169, 169, 169)
-                    .addComponent(jtf_salarioProfesional1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(190, Short.MAX_VALUE)))
         );
 
         jtb_datosProfesionales.addTab("Curriculum", jPanel5);
@@ -878,8 +912,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jtf_especializacionProfesional.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Educación básica", "Educación secundaria", "Licenciatura o Ingeniería", "Maestría", "Doctorado" }));
+        jcb_gradoProfesional.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jcb_gradoProfesional.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Educación básica", "Educación secundaria", "Licenciatura o Ingeniería", "Maestría", "Doctorado" }));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -909,7 +943,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jrb_noEstudianteProfesional))
                     .addComponent(jtf_especializacionProfesional, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcb_gradoProfesional, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -918,7 +952,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcb_gradoProfesional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
@@ -1150,14 +1184,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_salirLoginMouseClicked
 
     private void jb_subecurriculumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_subecurriculumMouseClicked
-        String genero = "";
-        if (jrb_femeninoPersonal.isSelected()) {
-                genero = "F";
-            } else {
-                genero = "M";
-            }
-        persona = new Persona(jtf_identidadLegal.getText(),jtf_nombrePersonal.getText(),jtf_apellidoPersonal.getText(),jtf_nacionalidadPersonal.getText(),genero,
-                                jdc_nacimientoPersonal.getDate(),jtf_telefonoPersonal.getText(),jtf_correoPersonal.getText(),jta_direccionPersonal.getText());
         jd_datosPersonales.pack();
         jd_datosPersonales.setModal(true);
         jd_datosPersonales.setLocationRelativeTo(this);
@@ -1165,7 +1191,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_subecurriculumMouseClicked
 
     private void jb_guardarPersonalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarPersonalMouseClicked
-        
+        String genero = "", id = "";
+        boolean edad, antecedentes, licencia, servicio, casado, visa;
+        if (jrb_femeninoPersonal.isSelected()) {
+            genero = "F";
+        } else {
+            genero = "M";
+        }
+        persona = new Persona(jtf_identidadLegal.getText(), jtf_nombrePersonal.getText(), jtf_apellidoPersonal.getText(), jtf_nacionalidadPersonal.getText(), genero,
+                jdc_nacimientoPersonal.getDate(), jtf_telefonoPersonal.getText(), jtf_correoPersonal.getText(), jta_direccionPersonal.getText());
+        if (jrb_siFamiliares.isSelected()) {
+            id = jtf_idFamiliares.getText();
+        } else {
+            id = "0";
+        }
+        edad = jrb_siEdadLegal.isSelected();
+        antecedentes = jrb_siAntecedenteLegal.isSelected();
+        licencia = jrb_siLicenciaLegal.isSelected();
+        servicio = jrb_siServicioLegal.isSelected();
+        casado = jrb_siCasadoLegal.isSelected();
+        visa = jrb_siVisaLegal.isSelected();
+        persona.getFamiliares().add(new DatosFamiliares(jtf_nombreFamiliares.getText(), jtf_parentescoFamiliares.getText(), id));
+        datosLegales = new DatosLegales(jtf_identidadLegal.getText(), edad, antecedentes, licencia, servicio, casado, visa);
+        persona.setDatoslegales(datosLegales);
         jd_datosProfesionales.pack();
         jd_datosProfesionales.setModal(true);
         jd_datosProfesionales.setLocationRelativeTo(this);
@@ -1173,8 +1221,81 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jd_datosProfesionales.setVisible(true);
     }//GEN-LAST:event_jb_guardarPersonalMouseClicked
 
+    public void resetearValores() {
+        jtf_identidadLegal.setText("");
+        jtf_nombrePersonal.setText("");
+        jtf_apellidoPersonal.setText("");
+        jtf_nacionalidadPersonal.setText("");
+        jtf_telefonoPersonal.setText("");
+        jtf_correoPersonal.setText("");
+        jta_direccionPersonal.setText("");
+        jtf_nombreFamiliares.setText("");
+        jtf_parentescoFamiliares.setText("");
+        jtf_idFamiliares.setText("");
+        jta_puestoProfesional.setText("");
+        jta_idiomasProfesional.setText("");
+        jtf_salarioProfesional.setText("");
+        jtf_especializacionProfesional.setText("");
+        jta_otrosEstudiosProfesional.setText("");
+    }
+
     private void jb_guardarProfesionalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarProfesionalMouseClicked
-        // TODO add your handling code here:
+        //Curriculum
+        int salario = Integer.parseInt(jtf_salarioProfesional.getText());
+        boolean contrato = jrb_siContratoProfesional.isSelected();
+        curriculum = new Curriculum(salario, contrato);
+        String puestos = jta_puestoProfesional.getText();
+        String idiomas = jta_idiomasProfesional.getText();
+        String[] puestosSeparados = puestos.split(",");
+        String[] idiomasSeparados = idiomas.split(",");
+        curriculum.getPuestoDeseado().addAll(Arrays.asList(puestosSeparados));
+        curriculum.getIdiomas().addAll(Arrays.asList(idiomasSeparados));
+
+        //Experiencia Laboral
+        int aniosExperiencia = Integer.parseInt(jtf_salarioProfesional.getText());
+        experiencia = new ExperienciaLaboral(aniosExperiencia, jtf_trabajoProfesional.getText(), jtf_puestoProfesional.getText());
+
+        //Datos Académicos
+        String grado;
+        boolean estudiante = jrb_siEstudianteProfesional.isSelected();
+        if (jcb_gradoProfesional.getSelectedIndex() == 0) {
+            grado = "Basica";
+        } else if (jcb_gradoProfesional.getSelectedIndex() == 1) {
+            grado = "Secundaria";
+        } else if (jcb_gradoProfesional.getSelectedIndex() == 2) {
+            grado = "Licenciatura o Ingenieria";
+        } else if (jcb_gradoProfesional.getSelectedIndex() == 3) {
+            grado = "Maestria";
+        } else {
+            grado = "Doctorado";
+        }
+        String especializacion;
+        if (jtf_especializacionProfesional.getText() == null) {
+            especializacion = "Ninguna";
+        } else {
+            especializacion = jtf_especializacionProfesional.getText();
+        }
+        /*
+         String idiomas = jta_idiomasProfesional.getText();
+        String[] puestosSeparados = puestos.split(",");
+         */
+        datosacademicos = new DatosAcademicos(grado, especializacion, estudiante, jta_otrosEstudiosProfesional.getText());
+
+        //Datos sanitarios
+        boolean alergias = jrb_siAlergiasProfesional.isSelected();
+        boolean respiratorio = jrb_siRespiratorioProfesional.isSelected();
+        boolean cardiaco = jrb_siCardiacoProfesional.isSelected();
+        boolean mental = jrb_siMentalProfesional.isSelected();
+        datossanitarios = new DatosSanitarios(alergias, respiratorio, cardiaco, mental);
+
+        //lo último
+        persona.setCurriculum(curriculum);
+        persona.setExperiencia(experiencia);
+        persona.setDatosacademicos(datosacademicos);
+        persona.setDatossanitarios(datossanitarios);
+        resetearValores();
+        jd_datosProfesionales.setVisible(false);
+        JOptionPane.showMessageDialog(this, "Se han guardado tus datos");
     }//GEN-LAST:event_jb_guardarProfesionalMouseClicked
 
     /**
@@ -1221,13 +1342,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bg_contrato;
     private javax.swing.ButtonGroup bg_estudiante;
     private javax.swing.ButtonGroup bg_licencia;
+    private javax.swing.ButtonGroup bg_mayor;
     private javax.swing.ButtonGroup bg_mental;
     private javax.swing.ButtonGroup bg_respiratorio;
     private javax.swing.ButtonGroup bg_servicioMilitar;
     private javax.swing.ButtonGroup bg_visa;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1268,6 +1389,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1281,11 +1403,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1297,6 +1414,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_login;
     private javax.swing.JButton jb_salirLogin;
     private javax.swing.JButton jb_subecurriculum;
+    private javax.swing.JComboBox<String> jcb_gradoProfesional;
     private javax.swing.JDialog jd_datosPersonales;
     private javax.swing.JDialog jd_datosProfesionales;
     private javax.swing.JDialog jd_login;
@@ -1305,17 +1423,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_femeninoPersonal;
     private javax.swing.JRadioButton jrb_masculinoPersonal;
     private javax.swing.JRadioButton jrb_noAlergiasProfesional;
+    private javax.swing.JRadioButton jrb_noAntecedenteLegal;
     private javax.swing.JRadioButton jrb_noCardiacoProfesional;
+    private javax.swing.JRadioButton jrb_noCasadoLegal;
     private javax.swing.JRadioButton jrb_noContratoProfesional;
+    private javax.swing.JRadioButton jrb_noEdadLegal;
     private javax.swing.JRadioButton jrb_noEstudianteProfesional;
     private javax.swing.JRadioButton jrb_noFamiliares;
+    private javax.swing.JRadioButton jrb_noLicenciaLegal;
     private javax.swing.JRadioButton jrb_noMentalProfesional;
     private javax.swing.JRadioButton jrb_noRespiratorioProfesional;
+    private javax.swing.JRadioButton jrb_noServicioLegal;
+    private javax.swing.JRadioButton jrb_noVisaLegal;
     private javax.swing.JRadioButton jrb_siAlergiasProfesional;
     private javax.swing.JRadioButton jrb_siAntecedenteLegal;
     private javax.swing.JRadioButton jrb_siCardiacoProfesional;
     private javax.swing.JRadioButton jrb_siCasadoLegal;
     private javax.swing.JRadioButton jrb_siContratoProfesional;
+    private javax.swing.JRadioButton jrb_siEdadLegal;
     private javax.swing.JRadioButton jrb_siEstudianteProfesional;
     private javax.swing.JRadioButton jrb_siFamiliares;
     private javax.swing.JRadioButton jrb_siLicenciaLegal;
@@ -1340,7 +1465,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_nombrePersonal1;
     private javax.swing.JTextField jtf_parentescoFamiliares;
     private javax.swing.JTextField jtf_puestoProfesional;
-    private javax.swing.JTextField jtf_salarioProfesional1;
+    private javax.swing.JTextField jtf_salarioProfesional;
     private javax.swing.JTextField jtf_telefonoPersonal;
     private javax.swing.JTextField jtf_trabajoProfesional;
     private javax.swing.JTextField jtf_usuario;

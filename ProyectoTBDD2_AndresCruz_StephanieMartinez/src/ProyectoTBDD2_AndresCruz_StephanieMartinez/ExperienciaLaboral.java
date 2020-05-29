@@ -1,23 +1,23 @@
 package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
-public class ExperenciaLaboral {
+public class ExperienciaLaboral {
 
-    int aniosExperencia;
+    int aniosExperiencia;
     String trabajoAnterior;
     String puestoAnterior;
 
-    public ExperenciaLaboral(int aniosExperencia, String trabajoAnterior, String puestoAnterior) {
-        this.aniosExperencia = aniosExperencia;
+    public ExperienciaLaboral(int aniosExperencia, String trabajoAnterior, String puestoAnterior) {
+        this.aniosExperiencia = aniosExperencia;
         this.trabajoAnterior = trabajoAnterior;
         this.puestoAnterior = puestoAnterior;
     }
 
-    public int getAniosExperencia() {
-        return aniosExperencia;
+    public int getAniosExperiencia() {
+        return aniosExperiencia;
     }
 
-    public void setAniosExperencia(int aniosExperencia) {
-        this.aniosExperencia = aniosExperencia;
+    public void setAniosExperiencia(int aniosExperiencia) {
+        this.aniosExperiencia = aniosExperiencia;
     }
 
     public String getTrabajoAnterior() {

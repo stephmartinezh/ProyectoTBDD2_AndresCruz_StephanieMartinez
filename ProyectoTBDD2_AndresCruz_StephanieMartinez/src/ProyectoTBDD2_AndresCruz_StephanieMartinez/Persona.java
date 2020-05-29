@@ -22,10 +22,10 @@ public class Persona {
     String telefono;
     String correo;
     String direccion;
-    ArrayList<DatosFamiliares> familiares;
+    ArrayList<DatosFamiliares> familiares = new ArrayList();
     DatosLegales datoslegales;
     Curriculum curriculum;
-    ExperenciaLaboral experiencia;
+    ExperienciaLaboral experiencia;
     DatosAcademicos datosacademicos;
     DatosSanitarios datossanitarios;
 
@@ -137,11 +137,11 @@ public class Persona {
         this.curriculum = curriculum;
     }
 
-    public ExperenciaLaboral getExperiencia() {
+    public ExperienciaLaboral getExperiencia() {
         return experiencia;
     }
 
-    public void setExperiencia(ExperenciaLaboral experiencia) {
+    public void setExperiencia(ExperienciaLaboral experiencia) {
         this.experiencia = experiencia;
     }
 

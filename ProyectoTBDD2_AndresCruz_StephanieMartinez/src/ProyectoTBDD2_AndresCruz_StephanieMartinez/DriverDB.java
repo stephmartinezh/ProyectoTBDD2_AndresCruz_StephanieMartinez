@@ -33,7 +33,7 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
  */
 public class DriverDB {
 
-    private final String databaseName = "AgenciaEmpleo";
+    private final String databaseName = "ProyectoTBDD";
     private ConnectionString connectionString;
     private CodecRegistry pojoCodecRegistry;
     private CodecRegistry codecRegistry;

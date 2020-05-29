@@ -3,15 +3,15 @@ package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 public class DatosSanitarios {
 
     boolean alergias;
-    boolean pRespiratorios;
-    boolean pCardiacos;
-    boolean pMentales;
+    boolean respiratorios;
+    boolean cardiacos;
+    boolean mentales;
 
     public DatosSanitarios(boolean alergias, boolean pRespiratorios, boolean pCardiacos, boolean pMentales) {
         this.alergias = alergias;
-        this.pRespiratorios = pRespiratorios;
-        this.pCardiacos = pCardiacos;
-        this.pMentales = pMentales;
+        this.respiratorios = pRespiratorios;
+        this.cardiacos = pCardiacos;
+        this.mentales = pMentales;
     }
 
     public boolean isAlergias() {
@@ -22,27 +22,27 @@ public class DatosSanitarios {
         this.alergias = alergias;
     }
 
-    public boolean ispRespiratorios() {
-        return pRespiratorios;
+    public boolean isRespiratorios() {
+        return respiratorios;
     }
 
-    public void setpRespiratorios(boolean pRespiratorios) {
-        this.pRespiratorios = pRespiratorios;
+    public void setRespiratorios(boolean respiratorios) {
+        this.respiratorios = respiratorios;
     }
 
-    public boolean ispCardiacos() {
-        return pCardiacos;
+    public boolean isCardiacos() {
+        return cardiacos;
     }
 
-    public void setpCardiacos(boolean pCardiacos) {
-        this.pCardiacos = pCardiacos;
+    public void setCardiacos(boolean cardiacos) {
+        this.cardiacos = cardiacos;
     }
 
-    public boolean ispMentales() {
-        return pMentales;
+    public boolean isMentales() {
+        return mentales;
     }
 
-    public void setpMentales(boolean pMentales) {
-        this.pMentales = pMentales;
+    public void setMentales(boolean mentales) {
+        this.mentales = mentales;
     }
 }

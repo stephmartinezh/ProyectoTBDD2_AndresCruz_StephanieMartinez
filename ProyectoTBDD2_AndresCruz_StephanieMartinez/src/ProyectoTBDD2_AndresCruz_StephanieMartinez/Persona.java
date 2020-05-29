@@ -29,6 +29,9 @@ public class Persona {
     DatosAcademicos datosacademicos;
     DatosSanitarios datossanitarios;
 
+    public Persona() {
+    }
+
     public Persona(String id,String nombre, String apellido, String nacionalidad, String genero, Date fechaNacimiento, String telefono, String correo, String direccion) {
         this.id=id;
         this.nombre = nombre;

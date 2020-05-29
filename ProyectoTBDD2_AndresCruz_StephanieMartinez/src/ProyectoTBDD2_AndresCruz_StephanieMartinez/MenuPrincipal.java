@@ -75,6 +75,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             public void run() {
                 new MenuPrincipal().setVisible(true);
             }
+            //this is a random comment
         });
     }
 

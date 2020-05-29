@@ -2,24 +2,24 @@ package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
 public class DatosAcademicos {
 
-    String estudioAlacanzado;
+    String gradoObtenido;
     String especializacion;
     boolean estudianteActivo;
     String otrosEstudios;
 
     public DatosAcademicos(String estudioAlacanzado, String especializacion, boolean estudianteActivo, String otrosEstudios) {
-        this.estudioAlacanzado = estudioAlacanzado;
+        this.gradoObtenido = estudioAlacanzado;
         this.especializacion = especializacion;
         this.estudianteActivo = estudianteActivo;
         this.otrosEstudios = otrosEstudios;
     }
 
-    public String getEstudioAlacanzado() {
-        return estudioAlacanzado;
+    public String getGradoObtenido() {
+        return gradoObtenido;
     }
 
-    public void setEstudioAlacanzado(String estudioAlacanzado) {
-        this.estudioAlacanzado = estudioAlacanzado;
+    public void setGradoObtenido(String gradoObtenido) {
+        this.gradoObtenido = gradoObtenido;
     }
 
     public String getEspecializacion() {

@@ -2289,31 +2289,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_salirTrabajosDisponiblesMouseClicked
 
     private void jb_aceptarTrabajosDisponiblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarTrabajosDisponiblesMouseClicked
+        if (!CIFUnico(jtf_cifTrabajosDisponibles.getText())) {
+        Empresas local=null;
         Aplicante aplicante = new Aplicante(id, "pendiente");
         for (int i = 0; i < empresas.size(); i++) {
-            for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
-                if (empresas.get(i).getOfertas().get(j).getCodigo().equalsIgnoreCase(jtf_codigoTrabajosDisponibles.getText())) {
-                    empresas.get(i).getOfertas().get(j).getAplicantes().add(aplicante);
-                }
+            if (empresas.get(i).getCif().equals(jtf_cifTrabajosDisponibles.getText())) {
+                local=empresas.get(i);
+                break;
             }
         }
-        int cont = -1;
-        for (int i = 0; i < personas.size(); i++) {
-            if(personas.get(i).getIdentidad().equals(id)){
-                cont = i;
-            }
-        }
-        personatemporal = new Persona(personas.get(cont).getIdentidad(),personas.get(cont).getNombre(),personas.get(cont).getApellido(),personas.get(cont).getNacionalidad(),
-                            personas.get(cont).getGenero(),personas.get(cont).getFechanacimiento(),personas.get(cont).getTelefono(),personas.get(cont).getCorreo(),personas.get(cont).getDireccion());
-        /*for (int i = 0; i < empresas.size(); i++) {
-            if(empresas.get(i).getNombre().equalsIgnoreCase(jtf_nombreTrabajosDisponibles.getText())){
-                for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
-                    if(empresas.get(i).getOfertas().get(j).getCodigo().equalsIgnoreCase(jtf_codigoTrabjosDispoibles.getText())){
-                        empresas.get(i).getOfertas().get(j).getAplicantes().add(aplicante);
-                    }
+        for (int j = 0; j < local.getOfertas().size(); j++) {
+                if (local.getOfertas().get(j).getCodigo().equalsIgnoreCase(jtf_codigoTrabajosDisponibles.getText())) {
+                    local.getOfertas().get(j).getAplicantes().add(aplicante);
+                    break;
                 }
             }
-        }*/
+        try {
+                servidor.setAplicante(local);
+                JOptionPane.showMessageDialog(this, "Se ha agregado la oferta de empleo exitosamente");
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar guardar su informacion en\nla base de datos. Intente de nuevo!");
+                empresas.get(numeroEmpresa).getOfertas().remove(empresas.get(numeroEmpresa).getOfertas().size() - 1);
+            }
+        }else {
+            JOptionPane.showMessageDialog(this, "No se ha seleccionado una empresa");
+        }
     }//GEN-LAST:event_jb_aceptarTrabajosDisponiblesMouseClicked
 
     /**

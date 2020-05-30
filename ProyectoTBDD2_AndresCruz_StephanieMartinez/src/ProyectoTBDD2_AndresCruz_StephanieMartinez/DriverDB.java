@@ -151,4 +151,21 @@ public class DriverDB {
             cerrarConexion();
         }
     }
+    public void setAplicante(Empresas p){
+        List<Empresas> empresas = null;
+        try {
+            crearConexion();
+            MongoCollection<Empresas> collection = database.getCollection("Empresa", Empresas.class);
+            if (p.getId()==null) {
+                empresas=collection.find(eq("cif", p.getCif())).into(new ArrayList<>());
+                p.setId(empresas.get(0).getId());
+            }
+            collection.deleteOne(eq("_id", p.getId()));
+            collection.insertOne(p);
+        } catch (MongoException e) {
+            e.printStackTrace();
+        }finally{
+            cerrarConexion();
+        }
+    }
 }

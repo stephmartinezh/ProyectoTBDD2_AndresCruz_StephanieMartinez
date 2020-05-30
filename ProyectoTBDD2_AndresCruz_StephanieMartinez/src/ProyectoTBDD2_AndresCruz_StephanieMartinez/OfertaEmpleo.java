@@ -21,7 +21,6 @@ public class OfertaEmpleo {
     String gradoobtenido;
     String sexo;
     int edadmin;
-    ArrayList<String> seleccionados;
     ArrayList<Aplicante> aplicantes;
 
     public OfertaEmpleo() {
@@ -109,14 +108,6 @@ public class OfertaEmpleo {
 
     public void setEdadmin(int edadmin) {
         this.edadmin = edadmin;
-    }
-
-    public ArrayList<String> getSeleccionados() {
-        return seleccionados;
-    }
-
-    public void setSeleccionados(ArrayList<String> seleccionados) {
-        this.seleccionados = seleccionados;
     }
 
     public ArrayList<Aplicante> getAplicantes() {

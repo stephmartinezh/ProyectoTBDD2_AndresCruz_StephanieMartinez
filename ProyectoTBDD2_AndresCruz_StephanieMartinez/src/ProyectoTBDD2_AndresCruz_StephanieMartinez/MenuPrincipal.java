@@ -1,5 +1,6 @@
 package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -16,6 +17,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        RecuperacionBD();
+        for (int i = 0; i < tiposdetrabajo.size(); i++) {
+            System.out.println(tiposdetrabajo.get(i).getNombreCategoria());
+        }
     }
 
     public boolean validarEspacio() {
@@ -25,6 +30,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
             condicion = true;
         }
         return condicion;
+    }
+    
+    public void RecuperacionBD(){
+        try {
+//            personas=(ArrayList<Persona>) servidor.getPersonas(null);
+//            System.out.println("persona");
+//            empresas= (ArrayList<Empresas>) servidor.getEmpresa(null);
+//            System.out.println("empresa");
+            tiposdetrabajo= (ArrayList<TipoTrabajo>) servidor.getTipoTrabajo(null);
+            System.out.println("trabajos");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
 
     /**
@@ -1683,4 +1702,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_usuario;
     private javax.swing.JTabbedPane jtp_informacionPersonal;
     // End of variables declaration//GEN-END:variables
+ArrayList<Persona> personas= new ArrayList();
+ArrayList<TipoTrabajo> tiposdetrabajo= new ArrayList();
+ArrayList<Empresas> empresas= new ArrayList();
+DriverDB servidor=new DriverDB();
 }

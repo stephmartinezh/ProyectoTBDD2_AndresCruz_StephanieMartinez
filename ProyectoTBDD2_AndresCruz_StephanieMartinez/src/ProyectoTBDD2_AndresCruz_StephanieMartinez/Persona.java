@@ -15,7 +15,7 @@ import org.bson.types.ObjectId;
  */
 public class Persona {
     ObjectId _id;
-    String id;
+    String identidad;
     String nombre;
     String apellido;
     String nacionalidad;
@@ -35,7 +35,7 @@ public class Persona {
     }
 
     public Persona(String id,String nombre, String apellido, String nacionalidad, String genero, Date fechaNacimiento, String telefono, String correo, String direccion) {
-        this.id=id;
+        this.identidad=id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacionalidad = nacionalidad;
@@ -46,12 +46,12 @@ public class Persona {
         this.direccion = direccion;
     }
     
-    public String getId() {
-        return id;
+    public String getIdentidad() {
+        return identidad;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdentidad(String identidad) {
+        this.identidad = identidad;
     }
 
     public String getNombre() {

@@ -58,7 +58,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public boolean IDUnico(String id) {
         for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).id.equals(id)) {
+            if (personas.get(i).identidad.equals(id)) {
                 return false;
             }
         }
@@ -1400,6 +1400,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } else {
             flag = false;
         }
+        if(jrb_noFamiliares.isSelected()){
+            flag=true;
+        }
+        System.out.println("IdFamilia="+flag+"\nIDUnico="+IDUnico(jtf_identidadLegal.getText())+"\nNoVacio="+NoVacioString(validacion));
         if (IDUnico(jtf_identidadLegal.getText()) && NoVacioString(validacion) && flag) {
             if (jrb_femeninoPersonal.isSelected()) {
                 genero = "F";

@@ -4,12 +4,12 @@ public class DatosFamiliares {
 
     String nombre;
     String parentesco;
-    String id;
+    String identidad;
 
     public DatosFamiliares(String nombre, String parentesco, String id) {
         this.nombre = nombre;
         this.parentesco = parentesco;
-        this.id = id;
+        this.identidad = id;
     }
 
     public String getNombre() {
@@ -28,11 +28,11 @@ public class DatosFamiliares {
         this.parentesco = parentesco;
     }
 
-    public String getId() {
-        return id;
+    public String getIdentidad() {
+        return identidad;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdentidad(String identidad) {
+        this.identidad = identidad;
     }
 }

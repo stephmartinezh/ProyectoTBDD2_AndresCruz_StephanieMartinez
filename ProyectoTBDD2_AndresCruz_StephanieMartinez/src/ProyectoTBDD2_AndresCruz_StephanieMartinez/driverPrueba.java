@@ -69,7 +69,7 @@ public class driverPrueba {
 
 //            collection.deleteOne(new Document("_id", "C4"));
             Persona p = new Persona();
-            p.setId("C4");
+            p.setIdentidad("C4");
             p.setNombre("Rafael Eduardo");
             p.setApellido("Flores Caceres");
             p.setNacionalidad("Honduras");

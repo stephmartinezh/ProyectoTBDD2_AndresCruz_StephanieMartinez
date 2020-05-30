@@ -33,6 +33,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
     }
 
+    public boolean CodigoOferta(String codigo, Empresas p){
+        for (int i = 0; i < p.getOfertas().size(); i++) {
+            if (p.getOfertas().get(i).getCodigo().equals(codigo)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public boolean validarEspacio() {
         boolean condicion = false;
         String contrasenaValidar = new String(jpf_contrasena.getPassword());
@@ -1960,8 +1969,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         //Curriculum
         int salario = Integer.parseInt(jtf_salarioProfesional.getText());
         boolean contrato = jrb_siContratoProfesional.isSelected();
+        String categoria = (String)(jcb_categoriaProfesional.getSelectedItem());
         String puesto = (String) (jcb_puestoProfesional.getSelectedItem());
-        curriculum = new Curriculum(puesto, salario, contrato);
+        curriculum = new Curriculum(categoria,puesto, salario, contrato);
         String idiomas = jta_idiomasProfesional.getText();
         String[] idiomasSeparados = idiomas.split(",");
         curriculum.getIdiomas().addAll(Arrays.asList(idiomasSeparados));
@@ -2049,13 +2059,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             jtf_ceoEmpresa.setText("");
             jta_direccionEmpresa.setText("");
             jcb_categoriaEmpresa.setSelectedIndex(0);
-            JOptionPane.showMessageDialog(this, "La empresa ha sido guardada exitosamente");
             jd_crearEmpresa.setVisible(false);
             jd_menuAgencia.setVisible(true);
             try {
                 servidor.setEmpresas(empresaObjeto);
                 empresas.add(empresaObjeto);
                 JOptionPane.showMessageDialog(this, "Se han guardado tus datos");
+                JOptionPane.showMessageDialog(this, "La empresa ha sido guardada exitosamente");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar guardar su informacion en\nla base de datos. Intente de nuevo!");
             }
@@ -2098,11 +2108,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_crearOfertaMouseClicked
 
     private void jb_guardarOfertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarOfertaMouseClicked
+        if (flagEmpresa&&CodigoOferta(jtf_codigoOferta.getText(),empresas.get(numeroEmpresa))) {  
         int anios = Integer.parseInt(jtf_aniosOferta.getText());
         double sueldo = Double.parseDouble(jtf_sueldoOferta.getText());
         int vacantes = Integer.parseInt(jtf_vacantesOferta.getText());
         int edadmin = Integer.parseInt(jtf_edadOferta.getText());
-        ArrayList<String> puestos = new ArrayList();
+        String puestos="";
         String grado;
         if (jcb_gradoOferta.getSelectedIndex() == 0) {
             grado = "Basica";
@@ -2128,8 +2139,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jtf_sueldoOferta.setText("");
         jtf_vacantesOferta.setText("");
         jtf_edadOferta.setText("");
-        jcb_gradoOferta.setSelectedIndex(0);
-        JOptionPane.showMessageDialog(this, "Se ha agregado la oferta de empleo exitosamente");
+        jcb_gradoOferta.setSelectedIndex(0);          
+        try {
+                servidor.setOfertaEmpresa(empresas.get(numeroEmpresa).getCif(), empresas.get(numeroEmpresa));
+                JOptionPane.showMessageDialog(this, "Se ha agregado la oferta de empleo exitosamente");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar guardar su informacion en\nla base de datos. Intente de nuevo!");
+                empresas.get(numeroEmpresa).getOfertas().remove(empresas.get(numeroEmpresa).getOfertas().size()-1);
+            }
+            
+            flagEmpresa=false;
+        }else{
+            JOptionPane.showMessageDialog(this, "No se ha seleccionado una empresa");
+        }
     }//GEN-LAST:event_jb_guardarOfertaMouseClicked
 
     private void jb_aceptarNumeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarNumeroMouseClicked
@@ -2140,11 +2162,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jb_salirListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirListaMouseClicked
         jd_ofertayLista.setVisible(false);
         jd_menuAgencia.setVisible(true);
+        flagEmpresa=false;
     }//GEN-LAST:event_jb_salirListaMouseClicked
 
     private void jb_salirOfertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirOfertaMouseClicked
         jd_ofertayLista.setVisible(false);
         jd_menuAgencia.setVisible(true);
+        flagEmpresa=false;
     }//GEN-LAST:event_jb_salirOfertaMouseClicked
 
     private void jb_listarPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_listarPersonasMouseClicked
@@ -2180,37 +2204,55 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jb_aplicarTrabajoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aplicarTrabajoMouseClicked
         id = JOptionPane.showInputDialog(this, "Ingrese su número de identidad");
         boolean condicion = false;
+        int pos=-1;
         for (int i = 0; i < personas.size(); i++) {
             if (personas.get(i).getIdentidad().equals(id)) {
                 condicion = true;
+                pos=i;
+                break;
             }
         }
-        //if (condicion) {
+        if (condicion) {
+        Persona temp=personas.get(pos);
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"Código", "Nombre", "Puesto", "Sueldo", "Edad Mínima", "Grado Obtenido"});
-        String[] registros = new String[6];
-        for (int i = 0; i < empresas.size(); i++) {
-            for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
-                for (int k = 0; k < empresas.get(i).getOfertas().get(j).getPuestos().size(); k++) {
-                    registros[0] = empresas.get(i).getOfertas().get(j).getCodigo();
-                    registros[1] = empresas.get(i).getNombre();
-                    registros[2] = empresas.get(i).getOfertas().get(j).getPuestos().get(k);
-                    registros[3] = Double.toString(empresas.get(i).getOfertas().get(j).getSueldo());
-                    registros[4] = Integer.toString(empresas.get(i).getOfertas().get(j).getEdadmin());
-                    registros[5] = empresas.get(i).getOfertas().get(j).getGradoobtenido();
-                    modelo.addRow(registros);
+        modelo.setColumnIdentifiers(new Object[]{"CIF","Nombre","Código Oferta", "Puesto", "Sueldo", "Edad Mínima", "Grado Obtenido"});
+        String[] registros = new String[7];
+//        for (int i = 0; i < empresas.size(); i++) {
+//            for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
+//                for (int k = 0; k < empresas.get(i).getOfertas().get(j).getPuestos().size(); k++) {
+//                    registros[0] = empresas.get(i).getOfertas().get(j).getCodigo();
+//                    registros[1] = empresas.get(i).getNombre();
+//                    registros[2] = empresas.get(i).getOfertas().get(j).getPuestos().get(k);
+//                    registros[3] = Double.toString(empresas.get(i).getOfertas().get(j).getSueldo());
+//                    registros[4] = Integer.toString(empresas.get(i).getOfertas().get(j).getEdadmin());
+//                    registros[5] = empresas.get(i).getOfertas().get(j).getGradoobtenido();
+//                    modelo.addRow(registros);
+//                }
+//            }
+//        }
+            for (int i = 0; i < empresas.size(); i++) {
+                if(empresas.get(i).getCategoria().equals(temp.getCurriculum().getCategoria())){
+                    for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
+                        registros[0] = empresas.get(i).getCif();
+                        registros[2] = empresas.get(i).getOfertas().get(j).getCodigo();
+                        registros[1] = empresas.get(i).getNombre();
+                        registros[3] = empresas.get(i).getOfertas().get(j).getPuesto();
+                        registros[4] = Double.toString(empresas.get(i).getOfertas().get(j).getSueldo());
+                        registros[5] = Integer.toString(empresas.get(i).getOfertas().get(j).getEdadmin());
+                        registros[6] = empresas.get(i).getOfertas().get(j).getGradoobtenido();
+                        modelo.addRow(registros);
+                    }
                 }
             }
-        }
         jt_listaPersonas.setModel(modelo);
         jd_aplicarTrabajo.pack();
         jd_aplicarTrabajo.setModal(true);
         jd_aplicarTrabajo.setLocationRelativeTo(this);
         jd_aplicarTrabajo.setVisible(true);
 
-        /*} else {
+        } else {
             JOptionPane.showMessageDialog(this, "El número de identidad no existe");
-        }*/
+        }
     }//GEN-LAST:event_jb_aplicarTrabajoMouseClicked
 
     private void jb_salirTrabajosDisponiblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirTrabajosDisponiblesMouseClicked
@@ -2482,4 +2524,5 @@ ArrayList<Persona> personas = new ArrayList();
     ArrayList<TipoTrabajo> tiposdetrabajo = new ArrayList();
     ArrayList<Empresas> empresas = new ArrayList();
     DriverDB servidor = new DriverDB();
+    boolean flagEmpresa = false;
 }

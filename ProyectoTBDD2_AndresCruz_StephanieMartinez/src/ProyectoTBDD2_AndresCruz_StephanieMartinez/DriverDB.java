@@ -12,6 +12,8 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import static com.mongodb.client.model.Filters.eq;
+import com.mongodb.client.model.Updates;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -138,5 +140,15 @@ public class DriverDB {
     private void cerrarConexion(){
         mongoClient.close();
     }
-
+    public void setOfertaEmpresa(String cif,Empresas p){
+        try {
+            crearConexion();
+            MongoCollection<Empresas> collection = database.getCollection("Empresa", Empresas.class);
+            collection.updateOne(eq("cif", cif),Updates.addToSet("ofertas", p.getOfertas().get(p.getOfertas().size()-1)));
+        } catch (MongoException e) {
+            e.printStackTrace();
+        }finally{
+            cerrarConexion();
+        }
+    }
 }

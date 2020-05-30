@@ -3,7 +3,7 @@ package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 import java.util.ArrayList;
 
 public class Curriculum {
-
+    String Categoria;
     String puestoDeseado;
     int salarioEsperado;
     boolean contratoTiempoCompleto;
@@ -12,12 +12,21 @@ public class Curriculum {
     public Curriculum() {
     }
 
-    public Curriculum(String puestoDeseado, int salarioEsperado, boolean contratoTiempoCompleto) {
+    public Curriculum(String Categoria, String puestoDeseado, int salarioEsperado, boolean contratoTiempoCompleto) {
+        this.Categoria = Categoria;
         this.puestoDeseado = puestoDeseado;
         this.salarioEsperado = salarioEsperado;
         this.contratoTiempoCompleto = contratoTiempoCompleto;
     }
 
+    public String getCategoria() {
+        return Categoria;
+    }
+
+    public void setCategoria(String Categoria) {
+        this.Categoria = Categoria;
+    }
+    
     public String getPuestoDeseado() {
         return puestoDeseado;
     }

@@ -16,7 +16,7 @@ public class OfertaEmpleo {
     int aexperiencia;
     double sueldo;
     boolean tiempocompleto;
-    ArrayList<String> puestos;
+    String puesto;
     int vacantes;
     String gradoobtenido;
     String sexo;
@@ -27,12 +27,12 @@ public class OfertaEmpleo {
     public OfertaEmpleo() {
     }
 
-    public OfertaEmpleo(String codigo, int aexperiencia, double sueldo, boolean tiempocompleto, ArrayList<String> puestos, int vacantes, String gradoobtenido, String sexo, int edadmin) {
+    public OfertaEmpleo(String codigo, int aexperiencia, double sueldo, boolean tiempocompleto, String puestos, int vacantes, String gradoobtenido, String sexo, int edadmin) {
         this.codigo = codigo;
         this.aexperiencia = aexperiencia;
         this.sueldo = sueldo;
         this.tiempocompleto = tiempocompleto;
-        this.puestos = puestos;
+        this.puesto = puestos;
         this.vacantes = vacantes;
         this.gradoobtenido = gradoobtenido;
         this.sexo = sexo;
@@ -71,12 +71,12 @@ public class OfertaEmpleo {
         this.tiempocompleto = tiempocompleto;
     }
 
-    public ArrayList<String> getPuestos() {
-        return puestos;
+    public String getPuesto() {
+        return puesto;
     }
 
-    public void setPuestos(ArrayList<String> puestos) {
-        this.puestos = puestos;
+    public void setPuesto(String puestos) {
+        this.puesto = puestos;
     }
 
     public int getVacantes() {

@@ -238,6 +238,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jb_crearOferta = new javax.swing.JButton();
         jb_listarPersonas = new javax.swing.JButton();
         jb_salirMenuPrincipal = new javax.swing.JButton();
+        jb_aceptarRechazar = new javax.swing.JButton();
         jd_crearEmpresa = new javax.swing.JDialog();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
@@ -302,6 +303,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jb_salirTrabajosDisponibles = new javax.swing.JButton();
         jtf_codigoTrabajosDisponibles = new javax.swing.JTextField();
         jtf_cifTrabajosDisponibles = new javax.swing.JTextField();
+        jd_aceptarRechazar = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel11 = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jt_pendientes = new javax.swing.JTable();
+        jPanel12 = new javax.swing.JPanel();
         jb_subecurriculum = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
@@ -1278,28 +1285,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jb_aceptarRechazar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jb_aceptarRechazar.setText("Aceptar o recharzar ofertas");
+        jb_aceptarRechazar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aceptarRechazarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_menuAgenciaLayout = new javax.swing.GroupLayout(jd_menuAgencia.getContentPane());
         jd_menuAgencia.getContentPane().setLayout(jd_menuAgenciaLayout);
         jd_menuAgenciaLayout.setHorizontalGroup(
             jd_menuAgenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_menuAgenciaLayout.createSequentialGroup()
-                .addGroup(jd_menuAgenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_menuAgenciaLayout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jb_crearOferta))
-                    .addGroup(jd_menuAgenciaLayout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jb_crearEmpresa))
-                    .addGroup(jd_menuAgenciaLayout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jLabel47))
-                    .addGroup(jd_menuAgenciaLayout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jb_listarPersonas))
-                    .addGroup(jd_menuAgenciaLayout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(jb_salirMenuPrincipal)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addGroup(jd_menuAgenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jb_aceptarRechazar)
+                    .addComponent(jLabel47)
+                    .addComponent(jb_crearEmpresa)
+                    .addComponent(jb_crearOferta)
+                    .addComponent(jb_listarPersonas)
+                    .addComponent(jb_salirMenuPrincipal))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jd_menuAgenciaLayout.setVerticalGroup(
             jd_menuAgenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1312,7 +1319,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jb_crearOferta)
                 .addGap(34, 34, 34)
                 .addComponent(jb_listarPersonas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
+                .addComponent(jb_aceptarRechazar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jb_salirMenuPrincipal)
                 .addContainerGap())
         );
@@ -1832,6 +1841,56 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jt_pendientes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jt_pendientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane8.setViewportView(jt_pendientes);
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 54, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Aplicantes pendientes", jPanel11);
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 526, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 416, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab2", jPanel12);
+
+        javax.swing.GroupLayout jd_aceptarRechazarLayout = new javax.swing.GroupLayout(jd_aceptarRechazar.getContentPane());
+        jd_aceptarRechazar.getContentPane().setLayout(jd_aceptarRechazarLayout);
+        jd_aceptarRechazarLayout.setHorizontalGroup(
+            jd_aceptarRechazarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+        jd_aceptarRechazarLayout.setVerticalGroup(
+            jd_aceptarRechazarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1986,6 +2045,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jb_guardarProfesionalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarProfesionalMouseClicked
         //Curriculum
+        jcb_categoriaProfesional.removeAllItems();
         int salario = Integer.parseInt(jtf_salarioProfesional.getText());
         boolean contrato = jrb_siContratoProfesional.isSelected();
         String categoria = (String) (jcb_categoriaProfesional.getSelectedItem());
@@ -2132,7 +2192,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             double sueldo = Double.parseDouble(jtf_sueldoOferta.getText());
             int vacantes = Integer.parseInt(jtf_vacantesOferta.getText());
             int edadmin = Integer.parseInt(jtf_edadOferta.getText());
-            String puestos = (String)(jcb_puestoOferta.getSelectedItem());
+            String puestos = (String) (jcb_puestoOferta.getSelectedItem());
             String grado;
             if (jcb_gradoOferta.getSelectedIndex() == 0) {
                 grado = "Basica";
@@ -2246,19 +2306,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             DefaultTableModel modelo = new DefaultTableModel();
             modelo.setColumnIdentifiers(new Object[]{"CIF", "Nombre", "Código Oferta", "Puesto", "Sueldo", "Edad Mínima", "Grado Obtenido"});
             String[] registros = new String[7];
-//        for (int i = 0; i < empresas.size(); i++) {
-//            for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
-//                for (int k = 0; k < empresas.get(i).getOfertas().get(j).getPuestos().size(); k++) {
-//                    registros[0] = empresas.get(i).getOfertas().get(j).getCodigo();
-//                    registros[1] = empresas.get(i).getNombre();
-//                    registros[2] = empresas.get(i).getOfertas().get(j).getPuestos().get(k);
-//                    registros[3] = Double.toString(empresas.get(i).getOfertas().get(j).getSueldo());
-//                    registros[4] = Integer.toString(empresas.get(i).getOfertas().get(j).getEdadmin());
-//                    registros[5] = empresas.get(i).getOfertas().get(j).getGradoobtenido();
-//                    modelo.addRow(registros);
-//                }
-//            }
-//        }
             for (int i = 0; i < empresas.size(); i++) {
                 if (empresas.get(i).getCategoria().equals(temp.getCurriculum().getCategoria())) {
                     for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
@@ -2290,21 +2337,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jb_aceptarTrabajosDisponiblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarTrabajosDisponiblesMouseClicked
         if (!CIFUnico(jtf_cifTrabajosDisponibles.getText())) {
-        Empresas local=null;
-        Aplicante aplicante = new Aplicante(id, "pendiente");
-        for (int i = 0; i < empresas.size(); i++) {
-            if (empresas.get(i).getCif().equals(jtf_cifTrabajosDisponibles.getText())) {
-                local=empresas.get(i);
-                break;
+            Empresas local = null;
+            Aplicante aplicante = new Aplicante(id, "pendiente");
+            for (int i = 0; i < empresas.size(); i++) {
+                if (empresas.get(i).getCif().equals(jtf_cifTrabajosDisponibles.getText())) {
+                    local = empresas.get(i);
+                    break;
+                }
             }
-        }
-        for (int j = 0; j < local.getOfertas().size(); j++) {
+            for (int j = 0; j < local.getOfertas().size(); j++) {
                 if (local.getOfertas().get(j).getCodigo().equalsIgnoreCase(jtf_codigoTrabajosDisponibles.getText())) {
                     local.getOfertas().get(j).getAplicantes().add(aplicante);
                     break;
                 }
             }
-        try {
+            try {
                 servidor.setAplicante(local);
                 JOptionPane.showMessageDialog(this, "Se ha agregado la oferta de empleo exitosamente");
             } catch (Exception e) {
@@ -2312,10 +2359,55 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar guardar su informacion en\nla base de datos. Intente de nuevo!");
                 empresas.get(numeroEmpresa).getOfertas().remove(empresas.get(numeroEmpresa).getOfertas().size() - 1);
             }
-        }else {
+        } else {
             JOptionPane.showMessageDialog(this, "No se ha seleccionado una empresa");
         }
     }//GEN-LAST:event_jb_aceptarTrabajosDisponiblesMouseClicked
+
+    private void jb_aceptarRechazarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarRechazarMouseClicked
+        String cif = JOptionPane.showInputDialog(this, "Ingrese el CIF de la empresa");
+        int pos = -1;
+        Empresas local = null;
+        Persona personatemp = null;
+        for (int i = 0; i < empresas.size(); i++) {
+            if (empresas.get(i).getCif().equalsIgnoreCase(cif)) {
+                pos = i;
+                local = empresas.get(i);
+                break;
+            }
+        }
+        if (pos == -1) {
+            JOptionPane.showMessageDialog(this, "El CIF ingresado no existe");
+        } else {
+            if (empresas.get(pos).getOfertas().size() == 0) {
+                JOptionPane.showMessageDialog(this, "Esta empresa actualmente no tiene solicitudes de empleo");
+            } else {
+                DefaultTableModel modelo = new DefaultTableModel();
+                modelo.setColumnIdentifiers(new Object[]{"Identidad", "Nombre", "Género", "Telefono", "Correo"});
+                String[] registros = new String[5];
+                for (int i = 0; i < local.getOfertas().size(); i++) {
+                    for (int j = 0; j < local.getOfertas().get(i).getAplicantes().size(); j++) {
+                        String identidad = local.getOfertas().get(i).getAplicantes().get(j).getIdpersona();
+                        for (int k = 0; k < personas.size(); k++) {
+                            if (personas.get(k).equals(identidad)) {
+                                personatemp = personas.get(k);
+                                break;
+                            }
+                        }
+                        registros[0] = personatemp.getIdentidad();
+                        registros[1] = personatemp.getNombre();
+                        registros[2] = personatemp.getGenero();
+                        registros[3] = personatemp.getTelefono();
+                        registros[4] = personatemp.getCorreo();
+                        modelo.addRow(registros);
+                        jt_pendientes.setModel(modelo);
+                    }
+                }
+            }
+
+        }
+
+    }//GEN-LAST:event_jb_aceptarRechazarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2439,6 +2531,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2454,9 +2548,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton jb_aceptarLogin;
     private javax.swing.JButton jb_aceptarNumero;
+    private javax.swing.JButton jb_aceptarRechazar;
     private javax.swing.JButton jb_aceptarTrabajosDisponibles;
     private javax.swing.JButton jb_aplicarTrabajo;
     private javax.swing.JButton jb_crearEmpresa;
@@ -2480,6 +2577,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcb_gradoProfesional;
     private javax.swing.JComboBox<String> jcb_puestoOferta;
     private javax.swing.JComboBox<String> jcb_puestoProfesional;
+    private javax.swing.JDialog jd_aceptarRechazar;
     private javax.swing.JDialog jd_aplicarTrabajo;
     private javax.swing.JDialog jd_crearEmpresa;
     private javax.swing.JDialog jd_datosPersonales;
@@ -2524,6 +2622,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_siVisaLegal;
     private javax.swing.JTable jt_listaEmpresas;
     private javax.swing.JTable jt_listaPersonas;
+    private javax.swing.JTable jt_pendientes;
     private javax.swing.JTable jt_trabajosDisponibles;
     private javax.swing.JTextArea jta_direccionEmpresa;
     private javax.swing.JTextArea jta_direccionPersonal;

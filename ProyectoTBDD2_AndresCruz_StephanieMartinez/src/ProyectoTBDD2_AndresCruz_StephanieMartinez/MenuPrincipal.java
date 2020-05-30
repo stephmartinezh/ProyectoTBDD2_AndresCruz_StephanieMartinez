@@ -47,6 +47,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     }
 
+    public boolean CIFUnico(String CIF){
+        for (int i = 0; i < empresas.size(); i++) {
+            if(empresas.get(i).cif.equals(CIF)){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public boolean IDUnico(String id){
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).id.equals(id)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean NoVacioString(String[] textos){
+        for (int i = 0; i < textos.length; i++) {
+            if (textos[i].equals(null)||textos[i].equals("")) {
+                return false;
+            }
+        }
+        return true;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1366,33 +1391,43 @@ public class MenuPrincipal extends javax.swing.JFrame {
             jcb_categoriaProfesional.addItem(tiposdetrabajo.get(i).getNombreCategoria());
         }
         String genero = "", id = "";
-        boolean edad, antecedentes, licencia, servicio, casado, visa;
-        if (jrb_femeninoPersonal.isSelected()) {
-            genero = "F";
-        } else {
-            genero = "M";
+        String[] validacion={jtf_identidadLegal.getText(), jtf_nombrePersonal.getText(), jtf_apellidoPersonal.getText(), jtf_nacionalidadPersonal.getText(),jtf_telefonoPersonal.getText(), jtf_correoPersonal.getText(), jta_direccionPersonal.getText()};
+        boolean edad, antecedentes, licencia, servicio, casado, visa,flag;
+        if(jrb_siFamiliares.isSelected()&&!IDUnico(jtf_idFamiliares.getText())){
+            flag=true;
+        }else{
+            flag=false;
         }
-        persona = new Persona(jtf_identidadLegal.getText(), jtf_nombrePersonal.getText(), jtf_apellidoPersonal.getText(), jtf_nacionalidadPersonal.getText(), genero,
-                jdc_nacimientoPersonal.getDate(), jtf_telefonoPersonal.getText(), jtf_correoPersonal.getText(), jta_direccionPersonal.getText());
-        if (jrb_siFamiliares.isSelected()) {
-            id = jtf_idFamiliares.getText();
-        } else {
-            id = "0";
+        if(IDUnico(jtf_identidadLegal.getText())&&NoVacioString(validacion)&&flag){
+            if (jrb_femeninoPersonal.isSelected()) {
+                genero = "F";
+            } else {
+                genero = "M";
+            }
+            persona = new Persona(jtf_identidadLegal.getText(), jtf_nombrePersonal.getText(), jtf_apellidoPersonal.getText(), jtf_nacionalidadPersonal.getText(), genero,
+                    jdc_nacimientoPersonal.getDate(), jtf_telefonoPersonal.getText(), jtf_correoPersonal.getText(), jta_direccionPersonal.getText());
+            if (jrb_siFamiliares.isSelected()) {
+                id = jtf_idFamiliares.getText();
+            } else {
+                id = "0";
+            }
+            edad = jrb_siEdadLegal.isSelected();
+            antecedentes = jrb_siAntecedenteLegal.isSelected();
+            licencia = jrb_siLicenciaLegal.isSelected();
+            servicio = jrb_siServicioLegal.isSelected();
+            casado = jrb_siCasadoLegal.isSelected();
+            visa = jrb_siVisaLegal.isSelected();
+            persona.getFamiliares().add(new DatosFamiliares(jtf_nombreFamiliares.getText(), jtf_parentescoFamiliares.getText(), id));
+            //datosLegales = new DatosLegales(edad, antecedentes, licencia, servicio, casado, visa);
+            persona.setDatoslegales(datosLegales);
+            jd_datosProfesionales.pack();
+            jd_datosProfesionales.setModal(true);
+            jd_datosProfesionales.setLocationRelativeTo(this);
+            jd_datosPersonales.setVisible(false);
+            jd_datosProfesionales.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar recopilar su informacion!\nVerifique que todos los campos contienen informacion valida.");
         }
-        edad = jrb_siEdadLegal.isSelected();
-        antecedentes = jrb_siAntecedenteLegal.isSelected();
-        licencia = jrb_siLicenciaLegal.isSelected();
-        servicio = jrb_siServicioLegal.isSelected();
-        casado = jrb_siCasadoLegal.isSelected();
-        visa = jrb_siVisaLegal.isSelected();
-        persona.getFamiliares().add(new DatosFamiliares(jtf_nombreFamiliares.getText(), jtf_parentescoFamiliares.getText(), id));
-        //datosLegales = new DatosLegales(edad, antecedentes, licencia, servicio, casado, visa);
-        persona.setDatoslegales(datosLegales);
-        jd_datosProfesionales.pack();
-        jd_datosProfesionales.setModal(true);
-        jd_datosProfesionales.setLocationRelativeTo(this);
-        jd_datosPersonales.setVisible(false);
-        jd_datosProfesionales.setVisible(true);
     }//GEN-LAST:event_jb_guardarPersonalMouseClicked
 
     public void resetearValores() {
@@ -1464,7 +1499,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         persona.setDatossanitarios(datossanitarios);
         resetearValores();
         jd_datosProfesionales.setVisible(false);
-        JOptionPane.showMessageDialog(this, "Se han guardado tus datos");
+        try {
+            servidor.setPersonas(persona);
+            personas.add(persona);
+            JOptionPane.showMessageDialog(this, "Se han guardado tus datos");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar guardar su informacion en\nla base de datos. Intente de nuevo!");
+        }
     }//GEN-LAST:event_jb_guardarProfesionalMouseClicked
 
     private void jb_crearEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearEmpresaMouseClicked

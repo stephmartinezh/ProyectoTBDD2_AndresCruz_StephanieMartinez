@@ -4,21 +4,22 @@ import java.util.ArrayList;
 
 public class Curriculum {
 
-    ArrayList<String> puestoDeseado = new ArrayList();
+    String puestoDeseado;
     int salarioEsperado;
     boolean contratoTiempoCompleto;
     ArrayList<String> idiomas = new ArrayList();
 
-    public Curriculum(int salarioEsperado, boolean contratoTiempoCompleto) {
+    public Curriculum(String puestoDeseado, int salarioEsperado, boolean contratoTiempoCompleto) {
+        this.puestoDeseado = puestoDeseado;
         this.salarioEsperado = salarioEsperado;
         this.contratoTiempoCompleto = contratoTiempoCompleto;
     }
 
-    public ArrayList<String> getPuestoDeseado() {
+    public String getPuestoDeseado() {
         return puestoDeseado;
     }
 
-    public void setPuestoDeseado(ArrayList<String> puestoDeseado) {
+    public void setPuestoDeseado(String puestoDeseado) {
         this.puestoDeseado = puestoDeseado;
     }
 
@@ -45,4 +46,6 @@ public class Curriculum {
     public void setIdiomas(ArrayList<String> idiomas) {
         this.idiomas = idiomas;
     }
+
+    
 }

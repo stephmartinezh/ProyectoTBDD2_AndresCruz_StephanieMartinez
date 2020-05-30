@@ -5,19 +5,32 @@
  */
 package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
-import java.util.ArrayList;
+import java.util.List;
+import org.bson.types.ObjectId;
 
 /**
  *
- * @author andrescruz
+ * @author Faith
  */
 public class TipoTrabajo {
-    String NombreCategoria;
-    ArrayList<String> PuestosTrabajo;
+    private ObjectId _id;
+    private String NombreCategoria;
+    private List<String> PuestosTrabajo;
 
-    public TipoTrabajo(String NombreCategoria, ArrayList<String> PuestosTrabajo) {
+    public TipoTrabajo() {
+    }
+
+    public TipoTrabajo(String NombreCategoria, List<String> PuestosTrabajo) {
         this.NombreCategoria = NombreCategoria;
         this.PuestosTrabajo = PuestosTrabajo;
+    }
+    
+    public ObjectId getId() {
+        return _id;
+    }
+
+    public void setId(ObjectId _id) {
+        this._id = _id;
     }
 
     public String getNombreCategoria() {
@@ -28,11 +41,11 @@ public class TipoTrabajo {
         this.NombreCategoria = NombreCategoria;
     }
 
-    public ArrayList<String> getPuestosTrabajo() {
+    public List<String> getPuestosTrabajo() {
         return PuestosTrabajo;
     }
 
-    public void setPuestosTrabajo(ArrayList<String> PuestosTrabajo) {
+    public void setPuestosTrabajo(List<String> PuestosTrabajo) {
         this.PuestosTrabajo = PuestosTrabajo;
     }
     

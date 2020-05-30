@@ -226,6 +226,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel47 = new javax.swing.JLabel();
         jb_crearEmpresa = new javax.swing.JButton();
         jb_crearOferta = new javax.swing.JButton();
+        jb_listarPersonas = new javax.swing.JButton();
+        jb_salirMenuPrincipal = new javax.swing.JButton();
         jd_crearEmpresa = new javax.swing.JDialog();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
@@ -249,6 +251,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel62 = new javax.swing.JLabel();
         jb_aceptarNumero = new javax.swing.JButton();
         jtf_numeroDeEmpresa = new javax.swing.JTextField();
+        jb_salirLista = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -270,8 +273,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jrb_femeninoOferta = new javax.swing.JRadioButton();
         jrb_masculinoOferta = new javax.swing.JRadioButton();
         jb_guardarOferta = new javax.swing.JButton();
+        jb_salirOferta = new javax.swing.JButton();
         bg_tiempo = new javax.swing.ButtonGroup();
         bg_generoOferta = new javax.swing.ButtonGroup();
+        jd_listarPersonas = new javax.swing.JDialog();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jt_listaPersonas = new javax.swing.JTable();
+        jb_salirListarPersonas = new javax.swing.JButton();
         jb_subecurriculum = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
@@ -1231,6 +1239,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jb_listarPersonas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jb_listarPersonas.setText("Listar personas");
+        jb_listarPersonas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_listarPersonasMouseClicked(evt);
+            }
+        });
+
+        jb_salirMenuPrincipal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jb_salirMenuPrincipal.setText("Salir");
+        jb_salirMenuPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirMenuPrincipalMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_menuAgenciaLayout = new javax.swing.GroupLayout(jd_menuAgencia.getContentPane());
         jd_menuAgencia.getContentPane().setLayout(jd_menuAgenciaLayout);
         jd_menuAgenciaLayout.setHorizontalGroup(
@@ -1245,7 +1269,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(jb_crearEmpresa))
                     .addGroup(jd_menuAgenciaLayout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addComponent(jLabel47)))
+                        .addComponent(jLabel47))
+                    .addGroup(jd_menuAgenciaLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jb_listarPersonas))
+                    .addGroup(jd_menuAgenciaLayout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(jb_salirMenuPrincipal)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         jd_menuAgenciaLayout.setVerticalGroup(
@@ -1257,7 +1287,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jb_crearEmpresa)
                 .addGap(34, 34, 34)
                 .addComponent(jb_crearOferta)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jb_listarPersonas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addComponent(jb_salirMenuPrincipal)
+                .addContainerGap())
         );
 
         jd_crearEmpresa.setTitle("Crear Empresa");
@@ -1397,6 +1431,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jtf_numeroDeEmpresa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jb_salirLista.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jb_salirLista.setText("Salir");
+        jb_salirLista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirListaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -1410,8 +1452,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jtf_numeroDeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jb_aceptarNumero)))
+                        .addGap(141, 141, 141)
+                        .addComponent(jb_aceptarNumero)
+                        .addGap(46, 46, 46)
+                        .addComponent(jb_salirLista)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -1422,9 +1466,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel62)
                     .addComponent(jtf_numeroDeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jb_aceptarNumero)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_aceptarNumero)
+                    .addComponent(jb_salirLista))
+                .addContainerGap())
         );
 
         jtb_ofertayLista.addTab("Lista de las empresas", jPanel9);
@@ -1493,15 +1539,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jb_salirOferta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jb_salirOferta.setText("Salir");
+        jb_salirOferta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirOfertaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(283, 283, 283)
-                        .addComponent(jb_guardarOferta))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1518,15 +1569,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                     .addComponent(jLabel29)
                                     .addGap(18, 18, 18)
                                     .addComponent(jtf_codigoOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jLabel58)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtf_vacantesOferta))
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jLabel56)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtf_sueldoOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                    .addComponent(jLabel58)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jtf_vacantesOferta))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                    .addComponent(jLabel56)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jtf_sueldoOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel57)
                                 .addGap(18, 18, 18)
@@ -1545,7 +1595,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addComponent(jrb_masculinoOferta))))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(jLabel18)))
+                        .addComponent(jLabel18))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(jb_guardarOferta)
+                        .addGap(39, 39, 39)
+                        .addComponent(jb_salirOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -1588,7 +1643,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel61)
                     .addComponent(jtf_edadOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jb_guardarOferta)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_guardarOferta)
+                    .addComponent(jb_salirOferta))
                 .addContainerGap())
         );
 
@@ -1603,6 +1660,46 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jd_ofertayListaLayout.setVerticalGroup(
             jd_ofertayListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jtb_ofertayLista)
+        );
+
+        jd_listarPersonas.setTitle("Listar Personas");
+
+        jt_listaPersonas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jt_listaPersonas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(jt_listaPersonas);
+
+        jb_salirListarPersonas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jb_salirListarPersonas.setText("Salir");
+        jb_salirListarPersonas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirListarPersonasMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_listarPersonasLayout = new javax.swing.GroupLayout(jd_listarPersonas.getContentPane());
+        jd_listarPersonas.getContentPane().setLayout(jd_listarPersonasLayout);
+        jd_listarPersonasLayout.setHorizontalGroup(
+            jd_listarPersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_listarPersonasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_salirListarPersonas)
+                .addGap(360, 360, 360))
+        );
+        jd_listarPersonasLayout.setVerticalGroup(
+            jd_listarPersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listarPersonasLayout.createSequentialGroup()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jb_salirListarPersonas)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1830,7 +1927,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             categoria = "Administracion";
         }
         String[] validacion = {jtf_cifEmpresa.getText(), jtf_nombreEmpresa.getText(), jtf_ceoEmpresa.getText(), jta_direccionEmpresa.getText()};
-        if(CIFUnico(jtf_cifEmpresa.getText())&&NoVacioString(validacion)){
+        if (CIFUnico(jtf_cifEmpresa.getText()) && NoVacioString(validacion)) {
             empresaObjeto = new Empresas(jtf_cifEmpresa.getText(), jtf_nombreEmpresa.getText(), jtf_ceoEmpresa.getText(), jta_direccionEmpresa.getText(), categoria);
             empresas.add(empresaObjeto);
             jtf_cifEmpresa.setText("");
@@ -1848,7 +1945,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar guardar su informacion en\nla base de datos. Intente de nuevo!");
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar recopilar su informacion!\nVerifique que todos los campos contienen informacion valida.");
         }
     }//GEN-LAST:event_jb_guardarEmpresasMouseClicked
@@ -1925,6 +2022,46 @@ public class MenuPrincipal extends javax.swing.JFrame {
         //validar que el número esté dentro del rango, es el número - 1 porque en l tabla hice que empezará en 1 y no 0
         numeroEmpresa = Integer.parseInt(jtf_numeroDeEmpresa.getText()) - 1;
     }//GEN-LAST:event_jb_aceptarNumeroMouseClicked
+
+    private void jb_salirListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirListaMouseClicked
+        jd_ofertayLista.setVisible(false);
+        jd_menuAgencia.setVisible(true);
+    }//GEN-LAST:event_jb_salirListaMouseClicked
+
+    private void jb_salirOfertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirOfertaMouseClicked
+        jd_ofertayLista.setVisible(false);
+        jd_menuAgencia.setVisible(true);
+    }//GEN-LAST:event_jb_salirOfertaMouseClicked
+
+    private void jb_listarPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_listarPersonasMouseClicked
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"Identidad", "Nombre", "Apellido", "Telefono", "Correo", "Puesto deseado"});
+        String[] registros = new String[6];
+        for (int i = 0; i < personas.size(); i++) {
+            registros[0] = personas.get(i).getIdentidad();
+            registros[1] = personas.get(i).getNombre();
+            registros[2] = personas.get(i).getApellido();
+            registros[3] = personas.get(i).getTelefono();
+            registros[4] = personas.get(i).getCorreo();
+            registros[5] = personas.get(i).getCurriculum().getPuestoDeseado();
+            modelo.addRow(registros);
+        }
+        jt_listaPersonas.setModel(modelo);
+        jd_listarPersonas.pack();
+        jd_listarPersonas.setModal(true);
+        jd_listarPersonas.setLocationRelativeTo(this);
+        jd_menuAgencia.setVisible(false);
+        jd_listarPersonas.setVisible(true);
+    }//GEN-LAST:event_jb_listarPersonasMouseClicked
+
+    private void jb_salirListarPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirListarPersonasMouseClicked
+        jd_listarPersonas.setVisible(false);
+        jd_menuAgencia.setVisible(true);
+    }//GEN-LAST:event_jb_salirListarPersonasMouseClicked
+
+    private void jb_salirMenuPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMenuPrincipalMouseClicked
+        jd_menuAgencia.setVisible(false);
+    }//GEN-LAST:event_jb_salirMenuPrincipalMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2057,6 +2194,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton jb_aceptarLogin;
     private javax.swing.JButton jb_aceptarNumero;
@@ -2066,8 +2204,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_guardarOferta;
     private javax.swing.JButton jb_guardarPersonal;
     private javax.swing.JButton jb_guardarProfesional;
+    private javax.swing.JButton jb_listarPersonas;
     private javax.swing.JButton jb_login;
+    private javax.swing.JButton jb_salirLista;
+    private javax.swing.JButton jb_salirListarPersonas;
     private javax.swing.JButton jb_salirLogin;
+    private javax.swing.JButton jb_salirMenuPrincipal;
+    private javax.swing.JButton jb_salirOferta;
     private javax.swing.JButton jb_subecurriculum;
     private javax.swing.JComboBox<String> jcb_categoriaEmpresa;
     private javax.swing.JComboBox<String> jcb_categoriaProfesional;
@@ -2077,6 +2220,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_crearEmpresa;
     private javax.swing.JDialog jd_datosPersonales;
     private javax.swing.JDialog jd_datosProfesionales;
+    private javax.swing.JDialog jd_listarPersonas;
     private javax.swing.JDialog jd_login;
     private javax.swing.JDialog jd_menuAgencia;
     private javax.swing.JDialog jd_ofertayLista;
@@ -2115,6 +2259,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_siTiempoOferta;
     private javax.swing.JRadioButton jrb_siVisaLegal;
     private javax.swing.JTable jt_listaEmpresas;
+    private javax.swing.JTable jt_listaPersonas;
     private javax.swing.JTextArea jta_direccionEmpresa;
     private javax.swing.JTextArea jta_direccionPersonal;
     private javax.swing.JTextArea jta_idiomasProfesional;

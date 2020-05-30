@@ -1866,7 +1866,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jd_ofertayLista.setLocationRelativeTo(this);
         jd_menuAgencia.setVisible(false);
         jd_ofertayLista.setVisible(true);
-
     }//GEN-LAST:event_jb_crearOfertaMouseClicked
 
     private void jb_guardarOfertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarOfertaMouseClicked

@@ -6,6 +6,9 @@ public class ExperienciaLaboral {
     String trabajoAnterior;
     String puestoAnterior;
 
+    public ExperienciaLaboral() {
+    }
+
     public ExperienciaLaboral(int aniosExperencia, String trabajoAnterior, String puestoAnterior) {
         this.aniosExperiencia = aniosExperencia;
         this.trabajoAnterior = trabajoAnterior;

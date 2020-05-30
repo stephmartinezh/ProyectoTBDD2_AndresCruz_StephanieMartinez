@@ -24,6 +24,9 @@ public class OfertaEmpleo {
     ArrayList<String> seleccionados;
     ArrayList<Aplicante> aplicantes;
 
+    public OfertaEmpleo() {
+    }
+
     public OfertaEmpleo(String codigo, int aexperiencia, double sueldo, boolean tiempocompleto, ArrayList<String> puestos, int vacantes, String gradoobtenido, String sexo, int edadmin) {
         this.codigo = codigo;
         this.aexperiencia = aexperiencia;

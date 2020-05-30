@@ -7,6 +7,9 @@ public class DatosSanitarios {
     boolean cardiacos;
     boolean mentales;
 
+    public DatosSanitarios() {
+    }
+
     public DatosSanitarios(boolean alergias, boolean pRespiratorios, boolean pCardiacos, boolean pMentales) {
         this.alergias = alergias;
         this.respiratorios = pRespiratorios;

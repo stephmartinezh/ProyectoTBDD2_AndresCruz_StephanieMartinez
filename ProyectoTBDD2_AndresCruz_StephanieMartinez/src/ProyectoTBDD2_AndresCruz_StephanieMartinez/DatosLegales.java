@@ -9,6 +9,9 @@ public class DatosLegales {
     boolean casado;
     boolean visa;
 
+    public DatosLegales() {
+    }
+
     public DatosLegales(boolean esMayorEdad, boolean aPenales, boolean lConducir, boolean cMilitar, boolean casado, boolean visa) {
         this.esMayorEdad = esMayorEdad;
         this.aPenales = aPenales;

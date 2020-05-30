@@ -9,6 +9,9 @@ public class Curriculum {
     boolean contratoTiempoCompleto;
     ArrayList<String> idiomas = new ArrayList();
 
+    public Curriculum() {
+    }
+
     public Curriculum(String puestoDeseado, int salarioEsperado, boolean contratoTiempoCompleto) {
         this.puestoDeseado = puestoDeseado;
         this.salarioEsperado = salarioEsperado;

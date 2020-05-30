@@ -7,6 +7,9 @@ public class DatosAcademicos {
     boolean estudianteActivo;
     String otrosEstudios;
 
+    public DatosAcademicos() {
+    }
+
     public DatosAcademicos(String estudioAlacanzado, String especializacion, boolean estudianteActivo, String otrosEstudios) {
         this.gradoObtenido = estudioAlacanzado;
         this.especializacion = especializacion;

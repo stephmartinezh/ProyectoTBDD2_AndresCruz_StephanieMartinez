@@ -13,6 +13,9 @@ public class Aplicante {
     String idpersona;
     String seleccionado;
 
+    public Aplicante() {
+    }
+
     public Aplicante(String idpersona, String seleccionado) {
         this.idpersona = idpersona;
         this.seleccionado = seleccionado;

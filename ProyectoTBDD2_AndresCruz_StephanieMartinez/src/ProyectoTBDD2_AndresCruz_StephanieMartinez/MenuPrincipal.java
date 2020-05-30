@@ -22,6 +22,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         RecuperacionBD();
+        for (int i = 0; i < personas.size(); i++) {
+            System.out.println(personas.get(i).getNombre());
+        }
+        for (int i = 0; i < empresas.size(); i++) {
+            System.out.println(empresas.get(i).getNombre());
+        }
         for (int i = 0; i < tiposdetrabajo.size(); i++) {
             System.out.println(tiposdetrabajo.get(i).getNombreCategoria());
         }
@@ -1823,16 +1829,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } else {
             categoria = "Administracion";
         }
-        empresaObjeto = new Empresas(jtf_cifEmpresa.getText(), jtf_nombreEmpresa.getText(), jtf_ceoEmpresa.getText(), jta_direccionEmpresa.getText(), categoria);
-        empresas.add(empresaObjeto);
-        jtf_cifEmpresa.setText("");
-        jtf_nombreEmpresa.setText("");
-        jtf_ceoEmpresa.setText("");
-        jta_direccionEmpresa.setText("");
-        jcb_categoriaEmpresa.setSelectedIndex(0);
-        JOptionPane.showMessageDialog(this, "La empresa ha sido guardada exitosamente");
-        jd_crearEmpresa.setVisible(false);
-        jd_menuAgencia.setVisible(true);
+        String[] validacion = {jtf_cifEmpresa.getText(), jtf_nombreEmpresa.getText(), jtf_ceoEmpresa.getText(), jta_direccionEmpresa.getText()};
+        if(CIFUnico(jtf_cifEmpresa.getText())&&NoVacioString(validacion)){
+            empresaObjeto = new Empresas(jtf_cifEmpresa.getText(), jtf_nombreEmpresa.getText(), jtf_ceoEmpresa.getText(), jta_direccionEmpresa.getText(), categoria);
+            empresas.add(empresaObjeto);
+            jtf_cifEmpresa.setText("");
+            jtf_nombreEmpresa.setText("");
+            jtf_ceoEmpresa.setText("");
+            jta_direccionEmpresa.setText("");
+            jcb_categoriaEmpresa.setSelectedIndex(0);
+            JOptionPane.showMessageDialog(this, "La empresa ha sido guardada exitosamente");
+            jd_crearEmpresa.setVisible(false);
+            jd_menuAgencia.setVisible(true);
+            try {
+                servidor.setEmpresas(empresaObjeto);
+                empresas.add(empresaObjeto);
+                JOptionPane.showMessageDialog(this, "Se han guardado tus datos");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar guardar su informacion en\nla base de datos. Intente de nuevo!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar recopilar su informacion!\nVerifique que todos los campos contienen informacion valida.");
+        }
     }//GEN-LAST:event_jb_guardarEmpresasMouseClicked
 
     private void jcb_categoriaProfesionalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_categoriaProfesionalItemStateChanged

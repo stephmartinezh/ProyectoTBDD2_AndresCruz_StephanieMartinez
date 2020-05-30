@@ -12,6 +12,9 @@ public class Empresas {
     String categoria;
     ArrayList<OfertaEmpleo> ofertas;
 
+    public Empresas() {
+    }
+
     public ObjectId getId() {
         return _id;
     }

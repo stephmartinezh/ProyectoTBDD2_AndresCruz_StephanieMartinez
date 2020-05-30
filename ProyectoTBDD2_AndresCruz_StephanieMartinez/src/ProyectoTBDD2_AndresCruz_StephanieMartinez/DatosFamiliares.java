@@ -6,6 +6,9 @@ public class DatosFamiliares {
     String parentesco;
     String identidad;
 
+    public DatosFamiliares() {
+    }
+
     public DatosFamiliares(String nombre, String parentesco, String id) {
         this.nombre = nombre;
         this.parentesco = parentesco;

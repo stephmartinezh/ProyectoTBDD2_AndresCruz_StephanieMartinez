@@ -1,15 +1,24 @@
 package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
 import java.util.ArrayList;
+import org.bson.types.ObjectId;
 
 public class Empresas {
-
+    ObjectId _id;
     String cif;
     String nombre;
     String ceo;
     String direccion;
     String categoria;
     ArrayList<OfertaEmpleo> ofertas;
+
+    public ObjectId getId() {
+        return _id;
+    }
+
+    public void setId(ObjectId _id) {
+        this._id = _id;
+    }
 
     public Empresas(String cif, String nombre, String ceo, String direccion, String categoria) {
         this.cif = cif;

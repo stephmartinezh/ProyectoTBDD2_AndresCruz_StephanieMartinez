@@ -34,10 +34,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     public void RecuperacionBD(){
         try {
-//            personas=(ArrayList<Persona>) servidor.getPersonas(null);
-//            System.out.println("persona");
-//            empresas= (ArrayList<Empresas>) servidor.getEmpresa(null);
-//            System.out.println("empresa");
+            personas=(ArrayList<Persona>) servidor.getPersonas(null);
+            System.out.println("persona");
+            empresas= (ArrayList<Empresas>) servidor.getEmpresa(null);
+            System.out.println("empresa");
             tiposdetrabajo= (ArrayList<TipoTrabajo>) servidor.getTipoTrabajo(null);
             System.out.println("trabajos");
         } catch (Exception e) {

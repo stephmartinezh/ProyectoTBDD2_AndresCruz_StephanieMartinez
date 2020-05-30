@@ -7,12 +7,14 @@ package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
 import java.util.ArrayList;
 import java.util.Date;
+import org.bson.types.ObjectId;
 
 /**
  *
  * @author andrescruz
  */
 public class Persona {
+    ObjectId _id;
     String id;
     String nombre;
     String apellido;

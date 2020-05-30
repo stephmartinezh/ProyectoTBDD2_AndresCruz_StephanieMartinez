@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 public class MenuPrincipal extends javax.swing.JFrame {
 
     Persona persona;
+    Persona personatemporal;
     DatosLegales datosLegales;
     Curriculum curriculum;
     ExperienciaLaboral experiencia;
@@ -33,7 +34,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
     }
 
-    public boolean CodigoOferta(String codigo, Empresas p){
+    public boolean CodigoOferta(String codigo, Empresas p) {
         for (int i = 0; i < p.getOfertas().size(); i++) {
             if (p.getOfertas().get(i).getCodigo().equals(codigo)) {
                 return false;
@@ -41,7 +42,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
         return true;
     }
-    
+
     public boolean validarEspacio() {
         boolean condicion = false;
         String contrasenaValidar = new String(jpf_contrasena.getPassword());
@@ -283,6 +284,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jrb_masculinoOferta = new javax.swing.JRadioButton();
         jb_guardarOferta = new javax.swing.JButton();
         jb_salirOferta = new javax.swing.JButton();
+        jLabel66 = new javax.swing.JLabel();
+        jcb_puestoOferta = new javax.swing.JComboBox<>();
         bg_tiempo = new javax.swing.ButtonGroup();
         bg_generoOferta = new javax.swing.ButtonGroup();
         jd_listarPersonas = new javax.swing.JDialog();
@@ -297,8 +300,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         jb_aceptarTrabajosDisponibles = new javax.swing.JButton();
         jb_salirTrabajosDisponibles = new javax.swing.JButton();
-        jtf_nombreTrabajosDisponibles = new javax.swing.JTextField();
-        jtf_codigoTrabjosDispoibles = new javax.swing.JTextField();
+        jtf_codigoTrabajosDisponibles = new javax.swing.JTextField();
+        jtf_cifTrabajosDisponibles = new javax.swing.JTextField();
         jb_subecurriculum = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
@@ -1486,7 +1489,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel62)
                     .addComponent(jtf_numeroDeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_aceptarNumero)
                     .addComponent(jb_salirLista))
@@ -1567,6 +1570,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel66.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel66.setText("Puesto");
+
+        jcb_puestoOferta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -1592,17 +1600,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                                     .addComponent(jLabel58)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jtf_vacantesOferta))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                                    .addComponent(jLabel56)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jtf_sueldoOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jLabel57)
-                                .addGap(18, 18, 18)
-                                .addComponent(jrb_siTiempoOferta)
-                                .addGap(18, 18, 18)
-                                .addComponent(jrb_noTiempoOferta))
+                                    .addComponent(jtf_vacantesOferta)))
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel59)
                                 .addGap(18, 18, 18)
@@ -1612,7 +1610,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jrb_femeninoOferta)
                                 .addGap(18, 18, 18)
-                                .addComponent(jrb_masculinoOferta))))
+                                .addComponent(jrb_masculinoOferta))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel56)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtf_sueldoOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                                    .addComponent(jLabel66)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jcb_puestoOferta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(13, 13, 13))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                                    .addComponent(jLabel57)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jrb_siTiempoOferta)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jrb_noTiempoOferta)))))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(jLabel18))
@@ -1641,11 +1655,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel56)
                     .addComponent(jtf_sueldoOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel57)
-                    .addComponent(jrb_siTiempoOferta)
-                    .addComponent(jrb_noTiempoOferta))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jrb_siTiempoOferta)
+                        .addComponent(jrb_noTiempoOferta))
+                    .addComponent(jLabel57))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel66)
+                    .addComponent(jcb_puestoOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel58)
                     .addComponent(jtf_vacantesOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1662,7 +1681,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel61)
                     .addComponent(jtf_edadOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_guardarOferta)
                     .addComponent(jb_salirOferta))
@@ -1739,7 +1758,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jScrollPane7.setViewportView(jt_trabajosDisponibles);
 
         jLabel64.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel64.setText("Ingrese el nombre de la empresa");
+        jLabel64.setText("Ingrese el CIF de la empresa");
 
         jLabel65.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel65.setText("Ingrese el código de la oferta");
@@ -1760,9 +1779,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jtf_nombreTrabajosDisponibles.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jtf_codigoTrabajosDisponibles.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jtf_codigoTrabjosDispoibles.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jtf_cifTrabajosDisponibles.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jd_aplicarTrabajoLayout = new javax.swing.GroupLayout(jd_aplicarTrabajo.getContentPane());
         jd_aplicarTrabajo.getContentPane().setLayout(jd_aplicarTrabajoLayout);
@@ -1778,12 +1797,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel65)
                         .addGap(18, 18, 18)
-                        .addComponent(jtf_nombreTrabajosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtf_codigoTrabajosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jd_aplicarTrabajoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel64)
                         .addGap(18, 18, 18)
-                        .addComponent(jtf_codigoTrabjosDispoibles, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtf_cifTrabajosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jd_aplicarTrabajoLayout.createSequentialGroup()
                         .addGap(199, 199, 199)
                         .addComponent(jb_aceptarTrabajosDisponibles)
@@ -1800,11 +1819,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addGroup(jd_aplicarTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtf_nombreTrabajosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_codigoTrabajosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel65))
                 .addGap(18, 18, 18)
                 .addGroup(jd_aplicarTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtf_codigoTrabjosDispoibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_cifTrabajosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel64))
                 .addGap(18, 18, 18)
                 .addGroup(jd_aplicarTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1969,9 +1988,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         //Curriculum
         int salario = Integer.parseInt(jtf_salarioProfesional.getText());
         boolean contrato = jrb_siContratoProfesional.isSelected();
-        String categoria = (String)(jcb_categoriaProfesional.getSelectedItem());
+        String categoria = (String) (jcb_categoriaProfesional.getSelectedItem());
         String puesto = (String) (jcb_puestoProfesional.getSelectedItem());
-        curriculum = new Curriculum(categoria,puesto, salario, contrato);
+        curriculum = new Curriculum(categoria, puesto, salario, contrato);
         String idiomas = jta_idiomasProfesional.getText();
         String[] idiomasSeparados = idiomas.split(",");
         curriculum.getIdiomas().addAll(Arrays.asList(idiomasSeparados));
@@ -2108,48 +2127,48 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_crearOfertaMouseClicked
 
     private void jb_guardarOfertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarOfertaMouseClicked
-        if (flagEmpresa&&CodigoOferta(jtf_codigoOferta.getText(),empresas.get(numeroEmpresa))) {  
-        int anios = Integer.parseInt(jtf_aniosOferta.getText());
-        double sueldo = Double.parseDouble(jtf_sueldoOferta.getText());
-        int vacantes = Integer.parseInt(jtf_vacantesOferta.getText());
-        int edadmin = Integer.parseInt(jtf_edadOferta.getText());
-        String puestos="";
-        String grado;
-        if (jcb_gradoOferta.getSelectedIndex() == 0) {
-            grado = "Basica";
-        } else if (jcb_gradoOferta.getSelectedIndex() == 1) {
-            grado = "Secundaria";
-        } else if (jcb_gradoOferta.getSelectedIndex() == 2) {
-            grado = "Licenciatura o Ingenieria";
-        } else if (jcb_gradoOferta.getSelectedIndex() == 3) {
-            grado = "Maestria";
-        } else {
-            grado = "Doctorado";
-        }
-        String genero;
-        if (jrb_femeninoOferta.isSelected()) {
-            genero = "F";
-        } else {
-            genero = "M";
-        }
-        boolean tiempo = jrb_siTiempoOferta.isSelected();
-        oferta = new OfertaEmpleo(jtf_codigoOferta.getText(), anios, sueldo, tiempo, puestos, vacantes, grado, genero, edadmin);
-        empresas.get(numeroEmpresa).getOfertas().add(oferta);
-        jtf_aniosOferta.setText("");
-        jtf_sueldoOferta.setText("");
-        jtf_vacantesOferta.setText("");
-        jtf_edadOferta.setText("");
-        jcb_gradoOferta.setSelectedIndex(0);          
-        try {
+        if (flagEmpresa && CodigoOferta(jtf_codigoOferta.getText(), empresas.get(numeroEmpresa))) {
+            int anios = Integer.parseInt(jtf_aniosOferta.getText());
+            double sueldo = Double.parseDouble(jtf_sueldoOferta.getText());
+            int vacantes = Integer.parseInt(jtf_vacantesOferta.getText());
+            int edadmin = Integer.parseInt(jtf_edadOferta.getText());
+            String puestos = (String)(jcb_puestoOferta.getSelectedItem());
+            String grado;
+            if (jcb_gradoOferta.getSelectedIndex() == 0) {
+                grado = "Basica";
+            } else if (jcb_gradoOferta.getSelectedIndex() == 1) {
+                grado = "Secundaria";
+            } else if (jcb_gradoOferta.getSelectedIndex() == 2) {
+                grado = "Licenciatura o Ingenieria";
+            } else if (jcb_gradoOferta.getSelectedIndex() == 3) {
+                grado = "Maestria";
+            } else {
+                grado = "Doctorado";
+            }
+            String genero;
+            if (jrb_femeninoOferta.isSelected()) {
+                genero = "F";
+            } else {
+                genero = "M";
+            }
+            boolean tiempo = jrb_siTiempoOferta.isSelected();
+            oferta = new OfertaEmpleo(jtf_codigoOferta.getText(), anios, sueldo, tiempo, puestos, vacantes, grado, genero, edadmin);
+            empresas.get(numeroEmpresa).getOfertas().add(oferta);
+            jtf_aniosOferta.setText("");
+            jtf_sueldoOferta.setText("");
+            jtf_vacantesOferta.setText("");
+            jtf_edadOferta.setText("");
+            jcb_gradoOferta.setSelectedIndex(0);
+            try {
                 servidor.setOfertaEmpresa(empresas.get(numeroEmpresa).getCif(), empresas.get(numeroEmpresa));
                 JOptionPane.showMessageDialog(this, "Se ha agregado la oferta de empleo exitosamente");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar guardar su informacion en\nla base de datos. Intente de nuevo!");
-                empresas.get(numeroEmpresa).getOfertas().remove(empresas.get(numeroEmpresa).getOfertas().size()-1);
+                empresas.get(numeroEmpresa).getOfertas().remove(empresas.get(numeroEmpresa).getOfertas().size() - 1);
             }
-            
-            flagEmpresa=false;
-        }else{
+
+            flagEmpresa = false;
+        } else {
             JOptionPane.showMessageDialog(this, "No se ha seleccionado una empresa");
         }
     }//GEN-LAST:event_jb_guardarOfertaMouseClicked
@@ -2157,18 +2176,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jb_aceptarNumeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarNumeroMouseClicked
         //validar que el número esté dentro del rango, es el número - 1 porque en l tabla hice que empezará en 1 y no 0
         numeroEmpresa = Integer.parseInt(jtf_numeroDeEmpresa.getText()) - 1;
+        jcb_puestoOferta.removeAllItems();
+        String categoria = empresas.get(numeroEmpresa).getCategoria();
+        for (int i = 0; i < tiposdetrabajo.size(); i++) {
+            if (tiposdetrabajo.get(i).getNombreCategoria().equals(categoria)) {
+                for (int j = 0; j < tiposdetrabajo.get(i).getPuestosTrabajo().size(); j++) {
+                    jcb_puestoOferta.addItem(tiposdetrabajo.get(i).getPuestosTrabajo().get(j));
+                }
+            }
+        }
+        jtf_numeroDeEmpresa.setText("");
     }//GEN-LAST:event_jb_aceptarNumeroMouseClicked
 
     private void jb_salirListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirListaMouseClicked
         jd_ofertayLista.setVisible(false);
         jd_menuAgencia.setVisible(true);
-        flagEmpresa=false;
+        flagEmpresa = false;
     }//GEN-LAST:event_jb_salirListaMouseClicked
 
     private void jb_salirOfertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirOfertaMouseClicked
         jd_ofertayLista.setVisible(false);
         jd_menuAgencia.setVisible(true);
-        flagEmpresa=false;
+        flagEmpresa = false;
     }//GEN-LAST:event_jb_salirOfertaMouseClicked
 
     private void jb_listarPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_listarPersonasMouseClicked
@@ -2204,19 +2233,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jb_aplicarTrabajoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aplicarTrabajoMouseClicked
         id = JOptionPane.showInputDialog(this, "Ingrese su número de identidad");
         boolean condicion = false;
-        int pos=-1;
+        int pos = -1;
         for (int i = 0; i < personas.size(); i++) {
             if (personas.get(i).getIdentidad().equals(id)) {
                 condicion = true;
-                pos=i;
+                pos = i;
                 break;
             }
         }
         if (condicion) {
-        Persona temp=personas.get(pos);
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"CIF","Nombre","Código Oferta", "Puesto", "Sueldo", "Edad Mínima", "Grado Obtenido"});
-        String[] registros = new String[7];
+            Persona temp = personas.get(pos);
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.setColumnIdentifiers(new Object[]{"CIF", "Nombre", "Código Oferta", "Puesto", "Sueldo", "Edad Mínima", "Grado Obtenido"});
+            String[] registros = new String[7];
 //        for (int i = 0; i < empresas.size(); i++) {
 //            for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
 //                for (int k = 0; k < empresas.get(i).getOfertas().get(j).getPuestos().size(); k++) {
@@ -2231,7 +2260,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 //            }
 //        }
             for (int i = 0; i < empresas.size(); i++) {
-                if(empresas.get(i).getCategoria().equals(temp.getCurriculum().getCategoria())){
+                if (empresas.get(i).getCategoria().equals(temp.getCurriculum().getCategoria())) {
                     for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
                         registros[0] = empresas.get(i).getCif();
                         registros[2] = empresas.get(i).getOfertas().get(j).getCodigo();
@@ -2244,11 +2273,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     }
                 }
             }
-        jt_listaPersonas.setModel(modelo);
-        jd_aplicarTrabajo.pack();
-        jd_aplicarTrabajo.setModal(true);
-        jd_aplicarTrabajo.setLocationRelativeTo(this);
-        jd_aplicarTrabajo.setVisible(true);
+            jt_listaPersonas.setModel(modelo);
+            jd_aplicarTrabajo.pack();
+            jd_aplicarTrabajo.setModal(true);
+            jd_aplicarTrabajo.setLocationRelativeTo(this);
+            jd_aplicarTrabajo.setVisible(true);
 
         } else {
             JOptionPane.showMessageDialog(this, "El número de identidad no existe");
@@ -2263,11 +2292,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Aplicante aplicante = new Aplicante(id, "pendiente");
         for (int i = 0; i < empresas.size(); i++) {
             for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
-                if(empresas.get(i).getOfertas().get(j).getCodigo().equalsIgnoreCase(jtf_codigoTrabjosDispoibles.getText())){
+                if (empresas.get(i).getOfertas().get(j).getCodigo().equalsIgnoreCase(jtf_codigoTrabajosDisponibles.getText())) {
                     empresas.get(i).getOfertas().get(j).getAplicantes().add(aplicante);
                 }
             }
         }
+        int cont = -1;
+        for (int i = 0; i < personas.size(); i++) {
+            if(personas.get(i).getIdentidad().equals(id)){
+                cont = i;
+            }
+        }
+        personatemporal = new Persona(personas.get(cont).getIdentidad(),personas.get(cont).getNombre(),personas.get(cont).getApellido(),personas.get(cont).getNacionalidad(),
+                            personas.get(cont).getGenero(),personas.get(cont).getFechanacimiento(),personas.get(cont).getTelefono(),personas.get(cont).getCorreo(),personas.get(cont).getDireccion());
         /*for (int i = 0; i < empresas.size(); i++) {
             if(empresas.get(i).getNombre().equalsIgnoreCase(jtf_nombreTrabajosDisponibles.getText())){
                 for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
@@ -2395,6 +2432,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2439,6 +2477,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcb_categoriaProfesional;
     private javax.swing.JComboBox<String> jcb_gradoOferta;
     private javax.swing.JComboBox<String> jcb_gradoProfesional;
+    private javax.swing.JComboBox<String> jcb_puestoOferta;
     private javax.swing.JComboBox<String> jcb_puestoProfesional;
     private javax.swing.JDialog jd_aplicarTrabajo;
     private javax.swing.JDialog jd_crearEmpresa;
@@ -2496,8 +2535,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_apellidoPersonal;
     private javax.swing.JTextField jtf_ceoEmpresa;
     private javax.swing.JTextField jtf_cifEmpresa;
+    private javax.swing.JTextField jtf_cifTrabajosDisponibles;
     private javax.swing.JTextField jtf_codigoOferta;
-    private javax.swing.JTextField jtf_codigoTrabjosDispoibles;
+    private javax.swing.JTextField jtf_codigoTrabajosDisponibles;
     private javax.swing.JTextField jtf_correoPersonal;
     private javax.swing.JTextField jtf_edadOferta;
     private javax.swing.JTextField jtf_especializacionProfesional;
@@ -2508,7 +2548,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_nombreFamiliares;
     private javax.swing.JTextField jtf_nombrePersonal;
     private javax.swing.JTextField jtf_nombrePersonal1;
-    private javax.swing.JTextField jtf_nombreTrabajosDisponibles;
     private javax.swing.JTextField jtf_numeroDeEmpresa;
     private javax.swing.JTextField jtf_parentescoFamiliares;
     private javax.swing.JTextField jtf_puestoProfesional;

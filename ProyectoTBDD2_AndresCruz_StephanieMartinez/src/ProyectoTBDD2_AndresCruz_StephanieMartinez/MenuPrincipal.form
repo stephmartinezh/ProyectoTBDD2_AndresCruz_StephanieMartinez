@@ -2200,7 +2200,7 @@
                               <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jtf_numeroDeEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="22" max="32767" attributes="0"/>
+                          <EmptySpace pref="70" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jb_aceptarNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jb_salirLista" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2313,18 +2313,6 @@
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jtf_vacantesOferta" max="32767" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jtf_sueldoOferta" min="-2" pref="68" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jrb_siTiempoOferta" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jrb_noTiempoOferta" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
@@ -2337,6 +2325,26 @@
                                           <Component id="jrb_femeninoOferta" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jrb_masculinoOferta" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jtf_sueldoOferta" min="-2" pref="68" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel66" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jcb_puestoOferta" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jrb_siTiempoOferta" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jrb_noTiempoOferta" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -2376,12 +2384,19 @@
                               <Component id="jtf_sueldoOferta" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jrb_siTiempoOferta" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jrb_noTiempoOferta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jrb_siTiempoOferta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jrb_noTiempoOferta" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel57" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jcb_puestoOferta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="26" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jtf_vacantesOferta" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2402,7 +2417,7 @@
                               <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jtf_edadOferta" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jb_guardarOferta" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jb_salirOferta" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2605,6 +2620,27 @@
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_salirOfertaMouseClicked"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JLabel" name="jLabel66">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="12" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Puesto"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jcb_puestoOferta">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="12" style="0"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -2700,13 +2736,13 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jtf_nombreTrabajosDisponibles" min="-2" pref="164" max="-2" attributes="0"/>
+                          <Component id="jtf_codigoTrabajosDisponibles" min="-2" pref="164" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jtf_codigoTrabjosDispoibles" min="-2" pref="164" max="-2" attributes="0"/>
+                          <Component id="jtf_cifTrabajosDisponibles" min="-2" pref="164" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
@@ -2728,12 +2764,12 @@
                   <Component id="jScrollPane7" min="-2" pref="312" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jtf_nombreTrabajosDisponibles" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtf_codigoTrabajosDisponibles" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jtf_codigoTrabjosDispoibles" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtf_cifTrabajosDisponibles" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2785,7 +2821,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingrese el nombre de la empresa"/>
+            <Property name="text" type="java.lang.String" value="Ingrese el CIF de la empresa"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel65">
@@ -2818,14 +2854,14 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_salirTrabajosDisponiblesMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtf_nombreTrabajosDisponibles">
+        <Component class="javax.swing.JTextField" name="jtf_codigoTrabajosDisponibles">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtf_codigoTrabjosDispoibles">
+        <Component class="javax.swing.JTextField" name="jtf_cifTrabajosDisponibles">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>

@@ -2,7 +2,6 @@ package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
 public class DatosLegales {
 
-    String numeroIdentidad;
     boolean esMayorEdad;
     boolean aPenales;
     boolean lConducir;
@@ -10,22 +9,13 @@ public class DatosLegales {
     boolean casado;
     boolean visa;
 
-    public DatosLegales(String numeroIdentidad, boolean esMayorEdad, boolean aPenales, boolean lConducir, boolean cMilitar, boolean casado, boolean visa) {
-        this.numeroIdentidad = numeroIdentidad;
+    public DatosLegales(boolean esMayorEdad, boolean aPenales, boolean lConducir, boolean cMilitar, boolean casado, boolean visa) {
         this.esMayorEdad = esMayorEdad;
         this.aPenales = aPenales;
         this.lConducir = lConducir;
         this.cMilitar = cMilitar;
         this.casado = casado;
         this.visa = visa;
-    }
-
-    public String getNumeroIdentidad() {
-        return numeroIdentidad;
-    }
-
-    public void setNumeroIdentidad(String numeroIdentidad) {
-        this.numeroIdentidad = numeroIdentidad;
     }
 
     public boolean isEsMayorEdad() {

@@ -47,16 +47,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     }
 
-    public boolean CIFUnico(String CIF){
+    public boolean CIFUnico(String CIF) {
         for (int i = 0; i < empresas.size(); i++) {
-            if(empresas.get(i).cif.equals(CIF)){
+            if (empresas.get(i).cif.equals(CIF)) {
                 return false;
             }
         }
         return true;
     }
-    
-    public boolean IDUnico(String id){
+
+    public boolean IDUnico(String id) {
         for (int i = 0; i < personas.size(); i++) {
             if (personas.get(i).id.equals(id)) {
                 return false;
@@ -64,14 +64,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
         return true;
     }
-    public boolean NoVacioString(String[] textos){
+
+    public boolean NoVacioString(String[] textos) {
         for (int i = 0; i < textos.length; i++) {
-            if (textos[i].equals(null)||textos[i].equals("")) {
+            if (textos[i].equals(null) || textos[i].equals("")) {
                 return false;
             }
         }
         return true;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1391,14 +1393,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             jcb_categoriaProfesional.addItem(tiposdetrabajo.get(i).getNombreCategoria());
         }
         String genero = "", id = "";
-        String[] validacion={jtf_identidadLegal.getText(), jtf_nombrePersonal.getText(), jtf_apellidoPersonal.getText(), jtf_nacionalidadPersonal.getText(),jtf_telefonoPersonal.getText(), jtf_correoPersonal.getText(), jta_direccionPersonal.getText()};
-        boolean edad, antecedentes, licencia, servicio, casado, visa,flag;
-        if(jrb_siFamiliares.isSelected()&&!IDUnico(jtf_idFamiliares.getText())){
-            flag=true;
-        }else{
-            flag=false;
+        String[] validacion = {jtf_identidadLegal.getText(), jtf_nombrePersonal.getText(), jtf_apellidoPersonal.getText(), jtf_nacionalidadPersonal.getText(), jtf_telefonoPersonal.getText(), jtf_correoPersonal.getText(), jta_direccionPersonal.getText()};
+        boolean edad, antecedentes, licencia, servicio, casado, visa, flag;
+        if (jrb_siFamiliares.isSelected() && !IDUnico(jtf_idFamiliares.getText())) {
+            flag = true;
+        } else {
+            flag = false;
         }
-        if(IDUnico(jtf_identidadLegal.getText())&&NoVacioString(validacion)&&flag){
+        if (IDUnico(jtf_identidadLegal.getText()) && NoVacioString(validacion) && flag) {
             if (jrb_femeninoPersonal.isSelected()) {
                 genero = "F";
             } else {
@@ -1418,14 +1420,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             casado = jrb_siCasadoLegal.isSelected();
             visa = jrb_siVisaLegal.isSelected();
             persona.getFamiliares().add(new DatosFamiliares(jtf_nombreFamiliares.getText(), jtf_parentescoFamiliares.getText(), id));
-            //datosLegales = new DatosLegales(edad, antecedentes, licencia, servicio, casado, visa);
+            datosLegales = new DatosLegales(edad, antecedentes, licencia, servicio, casado, visa);
             persona.setDatoslegales(datosLegales);
             jd_datosProfesionales.pack();
             jd_datosProfesionales.setModal(true);
             jd_datosProfesionales.setLocationRelativeTo(this);
             jd_datosPersonales.setVisible(false);
             jd_datosProfesionales.setVisible(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error al intentar recopilar su informacion!\nVerifique que todos los campos contienen informacion valida.");
         }
     }//GEN-LAST:event_jb_guardarPersonalMouseClicked
@@ -1441,7 +1443,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jtf_nombreFamiliares.setText("");
         jtf_parentescoFamiliares.setText("");
         jtf_idFamiliares.setText("");
-//        jta_puestoProfesional.setText("");
         jta_idiomasProfesional.setText("");
         jtf_salarioProfesional.setText("");
         jtf_especializacionProfesional.setText("");

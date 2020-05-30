@@ -2,7 +2,6 @@ package ProyectoTBDD2_AndresCruz_StephanieMartinez;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,6 +16,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     Empresas empresaObjeto;
     OfertaEmpleo oferta;
     int numeroEmpresa;
+    String id;
 
     public MenuPrincipal() {
         initComponents();
@@ -280,10 +280,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jt_listaPersonas = new javax.swing.JTable();
         jb_salirListarPersonas = new javax.swing.JButton();
+        jd_aplicarTrabajo = new javax.swing.JDialog();
+        jLabel63 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jt_trabajosDisponibles = new javax.swing.JTable();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jb_aceptarTrabajosDisponibles = new javax.swing.JButton();
+        jb_salirTrabajosDisponibles = new javax.swing.JButton();
+        jtf_nombreTrabajosDisponibles = new javax.swing.JTextField();
+        jtf_codigoTrabjosDispoibles = new javax.swing.JTextField();
         jb_subecurriculum = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
         jb_login = new javax.swing.JButton();
+        jb_aplicarTrabajo = new javax.swing.JButton();
 
         jd_login.setTitle("Login");
 
@@ -1702,6 +1713,97 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
+        jd_aplicarTrabajo.setTitle("Aplicar a un trabajo");
+
+        jLabel63.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel63.setText("Lista de trabajos disponibles");
+
+        jt_trabajosDisponibles.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jt_trabajosDisponibles.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane7.setViewportView(jt_trabajosDisponibles);
+
+        jLabel64.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel64.setText("Ingrese el nombre de la empresa");
+
+        jLabel65.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel65.setText("Ingrese el código de la oferta");
+
+        jb_aceptarTrabajosDisponibles.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jb_aceptarTrabajosDisponibles.setText("Aceptar");
+        jb_aceptarTrabajosDisponibles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aceptarTrabajosDisponiblesMouseClicked(evt);
+            }
+        });
+
+        jb_salirTrabajosDisponibles.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jb_salirTrabajosDisponibles.setText("Salir");
+        jb_salirTrabajosDisponibles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirTrabajosDisponiblesMouseClicked(evt);
+            }
+        });
+
+        jtf_nombreTrabajosDisponibles.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jtf_codigoTrabjosDispoibles.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout jd_aplicarTrabajoLayout = new javax.swing.GroupLayout(jd_aplicarTrabajo.getContentPane());
+        jd_aplicarTrabajo.getContentPane().setLayout(jd_aplicarTrabajoLayout);
+        jd_aplicarTrabajoLayout.setHorizontalGroup(
+            jd_aplicarTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane7)
+            .addGroup(jd_aplicarTrabajoLayout.createSequentialGroup()
+                .addGroup(jd_aplicarTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_aplicarTrabajoLayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(jLabel63))
+                    .addGroup(jd_aplicarTrabajoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel65)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtf_nombreTrabajosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_aplicarTrabajoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel64)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtf_codigoTrabjosDispoibles, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_aplicarTrabajoLayout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(jb_aceptarTrabajosDisponibles)
+                        .addGap(77, 77, 77)
+                        .addComponent(jb_salirTrabajosDisponibles)))
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+        jd_aplicarTrabajoLayout.setVerticalGroup(
+            jd_aplicarTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_aplicarTrabajoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addGroup(jd_aplicarTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtf_nombreTrabajosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel65))
+                .addGap(18, 18, 18)
+                .addGroup(jd_aplicarTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtf_codigoTrabjosDispoibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel64))
+                .addGap(18, 18, 18)
+                .addGroup(jd_aplicarTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_aceptarTrabajosDisponibles)
+                    .addComponent(jb_salirTrabajosDisponibles))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1730,6 +1832,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         jToolBar2.add(jb_login);
+
+        jb_aplicarTrabajo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jb_aplicarTrabajo.setText("Aplica a un trabajo");
+        jb_aplicarTrabajo.setFocusable(false);
+        jb_aplicarTrabajo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_aplicarTrabajo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jb_aplicarTrabajo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aplicarTrabajoMouseClicked(evt);
+            }
+        });
+        jToolBar2.add(jb_aplicarTrabajo);
 
         getContentPane().add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 619, 25));
 
@@ -1967,7 +2081,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jb_crearOfertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearOfertaMouseClicked
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(new Object[]{"Número", "CIF", "Nombre", "Categoria"});
-        String[] registros = new String[3];
+        String[] registros = new String[4];
         for (int i = 0; i < empresas.size(); i++) {
             registros[0] = Integer.toString(i + 1);
             registros[1] = empresas.get(i).getCif();
@@ -2062,6 +2176,66 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jb_salirMenuPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMenuPrincipalMouseClicked
         jd_menuAgencia.setVisible(false);
     }//GEN-LAST:event_jb_salirMenuPrincipalMouseClicked
+
+    private void jb_aplicarTrabajoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aplicarTrabajoMouseClicked
+        id = JOptionPane.showInputDialog(this, "Ingrese su número de identidad");
+        boolean condicion = false;
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).getIdentidad().equals(id)) {
+                condicion = true;
+            }
+        }
+        //if (condicion) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"Código", "Nombre", "Puesto", "Sueldo", "Edad Mínima", "Grado Obtenido"});
+        String[] registros = new String[6];
+        for (int i = 0; i < empresas.size(); i++) {
+            for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
+                for (int k = 0; k < empresas.get(i).getOfertas().get(j).getPuestos().size(); k++) {
+                    registros[0] = empresas.get(i).getOfertas().get(j).getCodigo();
+                    registros[1] = empresas.get(i).getNombre();
+                    registros[2] = empresas.get(i).getOfertas().get(j).getPuestos().get(k);
+                    registros[3] = Double.toString(empresas.get(i).getOfertas().get(j).getSueldo());
+                    registros[4] = Integer.toString(empresas.get(i).getOfertas().get(j).getEdadmin());
+                    registros[5] = empresas.get(i).getOfertas().get(j).getGradoobtenido();
+                    modelo.addRow(registros);
+                }
+            }
+        }
+        jt_listaPersonas.setModel(modelo);
+        jd_aplicarTrabajo.pack();
+        jd_aplicarTrabajo.setModal(true);
+        jd_aplicarTrabajo.setLocationRelativeTo(this);
+        jd_aplicarTrabajo.setVisible(true);
+
+        /*} else {
+            JOptionPane.showMessageDialog(this, "El número de identidad no existe");
+        }*/
+    }//GEN-LAST:event_jb_aplicarTrabajoMouseClicked
+
+    private void jb_salirTrabajosDisponiblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirTrabajosDisponiblesMouseClicked
+        jd_aplicarTrabajo.setVisible(false);
+    }//GEN-LAST:event_jb_salirTrabajosDisponiblesMouseClicked
+
+    private void jb_aceptarTrabajosDisponiblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarTrabajosDisponiblesMouseClicked
+        Aplicante aplicante = new Aplicante(id, "pendiente");
+        for (int i = 0; i < empresas.size(); i++) {
+            for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
+                if(empresas.get(i).getOfertas().get(j).getCodigo().equalsIgnoreCase(jtf_codigoTrabjosDispoibles.getText())){
+                    empresas.get(i).getOfertas().get(j).getAplicantes().add(aplicante);
+                }
+            }
+        }
+        /*for (int i = 0; i < empresas.size(); i++) {
+            if(empresas.get(i).getNombre().equalsIgnoreCase(jtf_nombreTrabajosDisponibles.getText())){
+                for (int j = 0; j < empresas.get(i).getOfertas().size(); j++) {
+                    if(empresas.get(i).getOfertas().get(j).getCodigo().equalsIgnoreCase(jtf_codigoTrabjosDispoibles.getText())){
+                        empresas.get(i).getOfertas().get(j).getAplicantes().add(aplicante);
+                    }
+                }
+            }
+        }*/
+    }//GEN-LAST:event_jb_aceptarTrabajosDisponiblesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2176,6 +2350,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2195,9 +2372,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton jb_aceptarLogin;
     private javax.swing.JButton jb_aceptarNumero;
+    private javax.swing.JButton jb_aceptarTrabajosDisponibles;
+    private javax.swing.JButton jb_aplicarTrabajo;
     private javax.swing.JButton jb_crearEmpresa;
     private javax.swing.JButton jb_crearOferta;
     private javax.swing.JButton jb_guardarEmpresas;
@@ -2211,12 +2391,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_salirLogin;
     private javax.swing.JButton jb_salirMenuPrincipal;
     private javax.swing.JButton jb_salirOferta;
+    private javax.swing.JButton jb_salirTrabajosDisponibles;
     private javax.swing.JButton jb_subecurriculum;
     private javax.swing.JComboBox<String> jcb_categoriaEmpresa;
     private javax.swing.JComboBox<String> jcb_categoriaProfesional;
     private javax.swing.JComboBox<String> jcb_gradoOferta;
     private javax.swing.JComboBox<String> jcb_gradoProfesional;
     private javax.swing.JComboBox<String> jcb_puestoProfesional;
+    private javax.swing.JDialog jd_aplicarTrabajo;
     private javax.swing.JDialog jd_crearEmpresa;
     private javax.swing.JDialog jd_datosPersonales;
     private javax.swing.JDialog jd_datosProfesionales;
@@ -2260,6 +2442,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_siVisaLegal;
     private javax.swing.JTable jt_listaEmpresas;
     private javax.swing.JTable jt_listaPersonas;
+    private javax.swing.JTable jt_trabajosDisponibles;
     private javax.swing.JTextArea jta_direccionEmpresa;
     private javax.swing.JTextArea jta_direccionPersonal;
     private javax.swing.JTextArea jta_idiomasProfesional;
@@ -2272,6 +2455,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_ceoEmpresa;
     private javax.swing.JTextField jtf_cifEmpresa;
     private javax.swing.JTextField jtf_codigoOferta;
+    private javax.swing.JTextField jtf_codigoTrabjosDispoibles;
     private javax.swing.JTextField jtf_correoPersonal;
     private javax.swing.JTextField jtf_edadOferta;
     private javax.swing.JTextField jtf_especializacionProfesional;
@@ -2282,6 +2466,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_nombreFamiliares;
     private javax.swing.JTextField jtf_nombrePersonal;
     private javax.swing.JTextField jtf_nombrePersonal1;
+    private javax.swing.JTextField jtf_nombreTrabajosDisponibles;
     private javax.swing.JTextField jtf_numeroDeEmpresa;
     private javax.swing.JTextField jtf_parentescoFamiliares;
     private javax.swing.JTextField jtf_puestoProfesional;
